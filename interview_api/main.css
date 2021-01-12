@@ -1,0 +1,23 @@
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    padding-top: 0;
+    text-align: right;
+}
+
+
+#newCardHome {
+    border: 3px solid salmon;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: flex-end; */
+}
+
+
+.creatorPic {
+    border-radius: 60%;
+}

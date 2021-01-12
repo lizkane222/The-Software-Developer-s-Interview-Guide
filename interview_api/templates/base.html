@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Developer Interview Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <h1>Developer Interview Prep Guide</h1>
+    <hr/>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="/" class="left brand-logo">🏡 HOME</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/tree">Tree</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<main class="container">
+    {% block content %}
+    
+    {% endblock %}
+</main>
+
+<footer class="page-footer">
+    <div>Sponsored by 🧡 Swarles 😻 & 🐈 Tucker</div>
+</footer>
+
+</body>
+</html>

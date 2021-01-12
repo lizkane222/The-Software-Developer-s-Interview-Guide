@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Terms</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <h2>Terms</h2>
+
+    {% for card in cards %}
+    <div class="card">
+        <div class="card-content">
+            <h3>{{card.term}}</h3>
+        </div>
+        <ul>
+            {% for def in card.definitions %}
+            <li>{{def}}</li>
+            {% endfor %}
+        </ul>
+        <div class="creatorPic">{{card.creator}}</div>
+    </div>
+    
+    
+    
+    {% endblock %}
+</body>
+</html>
