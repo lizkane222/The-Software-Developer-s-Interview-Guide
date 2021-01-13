@@ -1,0 +1,119 @@
+
+#timeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: space-around;
+    // background-image: url("https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif") alt="time lapse of sunset over water";
+}
+
+
+.width-Quatre {
+    max-width: 25vw;
+    margin: 0 0 ;
+}
+
+#timeContainer>h4 {
+    z-index:1;
+    margin-bottom: -15vh;
+}
+#timeContainer>img {
+    z-index:-1;
+    display: absolute;
+    width: 100%;
+}
+
+#timeContainer>p {
+    z-index:1;
+}
+    
+#siteName {
+    position: relative;
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list>.nav-item {
+    margin: 5vh 15vw;
+    position: relative;
+    left: 15vw;
+}
+
+#searchBar {
+    max-width: 25vw;
+    display: inline-block;
+}
+#tree-nav {
+    margin: 0 15vw;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer {
+    position: fixed;
+    /* padding-top: 5vh; */
+    text-align: right;
+    bottom: -5vh;
+    left: 0;
+}
+
+
+#newCardHome {
+    border: 3px solid salmon;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: flex-end; */
+}
+
+
+.creatorPic {
+    border-radius: 60%;
+}
+
+// header.app-header {
+
+//     display: none;
+//     flex-direction: row;
+//     align-items: flex-start;
+//     justify-content: flex-start;
+//     min-height: $header-height;
+//     line-height: $header-height;
+//     background-color: $theme-lt;
+//     color: $dark-tint-primary;
+//     font-size: 24px;
+//     border-bottom: $dark-tint-divider;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 6;
+//     border-width: 0;
+//     border-color: $dark-tint-divider;
+//     transition: background-color 0.5s ease;
+// }
+
+// .header-content {
+//     flex: 1;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: flex-start;
+//     justify-content: flex-start;
+//     font-size: inherit;
+//     line-height: inherit;
+//     background-color: inherit;
+//     color: inherit;
+//     border-bottom-width: 1px;
+//     border-bottom-style: solid;
+//     border-bottom-color: inherit;
+// }

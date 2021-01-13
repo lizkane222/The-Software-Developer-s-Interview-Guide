@@ -3,40 +3,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+        <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="../main.scss">
+    
+    
     <title>Developer Interview Guide</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../main.css">
 </head>
 <body>
-    <h1>Developer Interview Prep Guide</h1>
-    <hr/>
-    <header class="navbar-fixed">
-        <nav>
+    <!-- <h1 id="siteName">Developer Interview Prep Guide</h1>
+    <hr/> -->
+    <ul id="dropdown-terms" class="dropdown-content">
+        <li>
+            <a href="cards/">All Terms</a>
+        </li>
+        <li class="divider"></li>
+        {% for card in cards %}
+        <li><a href="">{{card.term}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul id="dropdown-categories" class="dropdown-content">
+        <li>
+            <a href="/tree">All Terms</a>
+        </li>
+        <li class="divider"></li>
+        {% for language in languages %}
+        <li><a href="">{{language.name}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <header class="navbar-fixed teal lighten-2">
+        <nav class="header-content">
             <div class="nav-wrapper">
-                <ul>
-                    <li>
-                        <a href="/" class="left brand-logo">🏡 HOME</a>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="left brand-logo">🏡</a>
                     </li>
                 </ul>
-                <ul>
-                    <li>
-                        <a href="/tree">Tree</a>
+                <!-- <div id="searchBar" class="center small">
+                    <input type="search" placeholder="search for a term" class="center width-Quatre"><input type="submit" value="search">
+                </div> -->
+                <ul class="right hide-on-med-and-down">
+                    <li class="nav-item dropdown-trigger" id="tree-nav" data-target="dropdown-categories">
+                        <a href="#!">Tree <i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    
+                    <li class="nav-item dropdown-trigger" data-target="dropdown-terms">
+                        <a href="#!">Terms <i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="features/" class="">Features</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 <main class="container">
+    
     {% block content %}
     
     {% endblock %}
 </main>
 
-<footer class="page-footer">
+<footer class="page-footer ">
     <div>Sponsored by 🧡 Swarles 😻 & 🐈 Tucker</div>
 </footer>
+
+<script type="text/javascript" src="../static/materialize/js/materialize.min.js">
+    // $(document).onload = {
+        $(".dropdown-trigger").dropdown({hover:false});
+
+    // }
+</script>
 
 </body>
 </html>

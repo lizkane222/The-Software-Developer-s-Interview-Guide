@@ -1,7 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Card, Language, Feature
+from .forms import Card_Form, Language_Form, Feature_Form
+from time import gmtime, strftime, localtime
+import datetime
+from datetime import datetime
+from django.utils import timezone
 
 # Create your views here. code responsible for rendering views/api endpoints
+
+#             Card('REST', 'Representational State Transfer', ['determines how the API looks', 'set of rules that devs follow when they create their API', 'one of these rules states that <you should be able to get a piece of data (called a resource) when you link to a specific URL>', 'Each URL is called a request while the data sent back to you is called a response'], 'back-end', 'cross language vocabulary', 'Liz Kane'),
 
 # /vocabulary
 # /topics
@@ -15,31 +23,66 @@ from django.http import HttpResponse
 def main(request):
     return HttpResponse("<h1>running 🏃🏻‍♀️</h1>")
 
+# MAIN INDEX
 def home(request):
-    # return HttpResponse("<h1>running 🏃🏻‍♀️</h1>")
-    return render(request, 'home.html')
+    cards = Card.objects.all()
+    languages = Language.objects.all()
+    context = {
+        'card_form': Card_Form(),
+        'language_form' : Language_Form(),
+        'cards': cards,
+        'languages': languages,
+        # 'time': strftime("%m-%d-%Y %H:%M %p" , gmtime()),
+        # "local_time": strftime("%H:%M %p", localtime()),
+        'now': datetime.now(),
+        'timezone': timezone.now(),
+    }
+    return render(request, 'home.html', context)
 
+# CATEGORIES & TOPICS
 def tree(request):
-    return HttpResponse("Tree of Knowledge")
+    languages = Language.objects.all()
+    context = {
+        'language_form' : Language_Form(),
+        'languages': languages
+    }
+    return render(request, "features/index.html", context)
+    # return HttpResponse("Tree of Knowledge", context)
 
-
-# class Card:
-#     def __init__(self, term, altname, subterms, definitions, category, topic, creator):
-#         self.term = term
-#         self.altname = altname
-#         self.subterms = subterms
-#         self.definitions = definitions
-#         self.category = category
-#         self.topic = topic
-#         self.creator = creator
-
-#         cards = [
-#             Card('API', 'Application Programming Interface', ['a set of rules that allow programs to tlak to each other', 'the developer creates the API on the server and allows the client to talk to it'], 'back-end', 'cross language vocabulary', 'Liz Kane'),
-#             Card('REST', 'Representational State Transfer', ['determines how the API looks', 'set of rules that devs follow when they create their API', 'one of these rules states that <you should be able to get a piece of data (called a resource) when you link to a specific URL>', 'Each URL is called a request while the data sent back to you is called a response'], 'back-end', 'cross language vocabulary', 'Liz Kane'),
-#         ]
-
-
+# CARDS INDEX
 def cards_index(request):
-    context = {'cards': cards}
-    return render(request, './cards/index.html', context)
+    if request.method =="GET":
+        print(request.GET)
+    if request.method == "POST":
+        # print(request.POST)
+        card_form = Card_Form(request.POST)
+        if card_form.is_valid():
+            new_card = card_form.save(commit=True)
+            # new_card.user = request.user
+            new_card.save()
+            return redirect('cards_index')
+    cards = Card.objects.all()
+    card_form = Card_Form()
+    context = {
+        'card_form': card_form,
+        'cards': cards
+    }
+    return render(request, 'cards/index.html', context)
 
+# FEATURES INDEX
+def feature_index(request):
+    if request.method == "POST":
+        # print(request.POST)
+        feature_form = Feature_Form(request.POST)
+        if feature_form.is_valid():
+            new_feature = feature_form.save(commit=True)
+            # new_card.user = request.user
+            new_feature.save()
+            return redirect('features_index')
+    features = Feature.objects.all()
+    feature_form = Feature_Form()
+    context = {
+        'feature_form': feature_form,
+        'features' : features
+    }
+    return render(request, 'features/index.html', context)
