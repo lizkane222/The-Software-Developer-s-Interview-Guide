@@ -1,7 +1,8 @@
 from django.db import models
 import string, random
 from django.contrib.postgres.fields import ArrayField
-
+from django.contrib.postgres.forms import SimpleArrayField
+# SimpleArrayField(forms.CharField(max_length=100))
 
 def generate_unique_code():
     length = 8
@@ -20,23 +21,23 @@ class Card(models.Model):
     term = models.CharField(max_length=30, default="", unique=True)
     altname = models.CharField(max_length=100, default="", unique=True)
     subterms = models.CharField(max_length=200, default="", unique=False)
-    definitions = ArrayField(
-        ArrayField(
-            models.CharField(max_length=3000, default="", blank=True, unique=False),
-            size=100
-        ),
-        size=50,
-    ),
+    definitions = models.CharField(max_length=3000, default="", unique=False)
+    # definitions = ArrayField(
+    #     ArrayField(
+    #         models.CharField(max_length=3000, default="", blank=True, unique=False),
+    #     ),
+    #         size=100
+    # ),
     category = models.CharField(max_length=200, default="", unique=False)
     topic = models.CharField(max_length=200, default="", unique=False)
     creator = models.CharField(max_length=1000, default="", unique=False)
-    codeSnippet = ArrayField(
-        ArrayField(
-            models.CharField(max_length=3000, default="", blank=True, unique=False),
-            size=100
-        ),
-        size=50,
-    ),
+    codeSnippet = models.CharField(max_length=3000, default="", unique=False)
+    # codeSnippet = ArrayField(
+    #     ArrayField(
+    #         models.CharField(max_length=3000, default="", blank=True, unique=False),
+    #     ),
+    #         size=100
+    # ),
     users_can_add_data = models.BooleanField(null=False, default=True)
     created_at = models.DateTimeField(auto_now_add=True),
 
