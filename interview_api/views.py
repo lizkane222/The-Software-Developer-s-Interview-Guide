@@ -26,6 +26,7 @@ def main(request):
 def home(request):
     cards = Card.objects.all()
     languages = Language.objects.all()
+
     context = {
         'card_form': Card_Form(),
         'language_form' : Language_Form(),
@@ -41,9 +42,10 @@ def home(request):
 # CATEGORIES & TOPICS
 def tree(request):
     languages = Language.objects.all()
+
     context = {
         'language_form' : Language_Form(),
-        'languages': languages
+        'languages': languages,
     }
     return render(request, "tree.html", context)
     # return HttpResponse("Tree of Knowledge", context)
@@ -74,7 +76,7 @@ def cards_index(request):
         'card_form': card_form,
         'cards': cards,
         'definition_form' : definition_form,
-        'definitions' : definitions
+        'definitions' : definitions,
     }
     return render(request, 'cards/index.html', context)
 
@@ -90,8 +92,19 @@ def feature_index(request):
             return redirect('features_index')
     features = Feature.objects.all()
     feature_form = Feature_Form()
+
     context = {
         'feature_form': feature_form,
-        'features' : features
+        'features' : features,
     }
     return render(request, 'features/index.html', context)
+
+
+def design_board(request):
+    cards = Card.objects.all()
+    
+
+    context = {
+        'cards': cards,
+    }
+    return render(request, 'design.html', context)

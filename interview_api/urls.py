@@ -19,8 +19,9 @@ urlpatterns = [
     path('cards/', views.cards_index, name="cards_index"),
     
     # FEATURE INDEX
-    path('features/', views.feature_index, name="features_index")
+    path('features/', views.feature_index, name="features_index"),
 
-
+    # DESIGN BOARD
+    path('design-board/', views.design_board, name="design_board"),
 
 ]

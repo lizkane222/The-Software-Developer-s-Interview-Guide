@@ -10,7 +10,7 @@
     // fonts
 
 
-    
+
 }
 
 
@@ -76,7 +76,7 @@ main {
 }
 
 .page-footer {
-    position: fixed;
+    position: sticky;
     /* padding-top: 5vh; */
     text-align: right;
     bottom: -5vh;
@@ -86,6 +86,51 @@ main {
 // =============================//
 // ========= BASE.HTML =========//
 // ============ END ============//
+
+//......................................
+
+// =========== START ===========//
+// ========= DESIGN.HTML =========//
+// =============================//
+
+#designBoard {
+    display: flex;
+    min-width: 80vw;
+    min-height: 90vh;
+    background-color: aqua;
+}
+#designBoard>div {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 3px solid rgb(55, 49, 143);
+    background-color: pink;
+}
+
+.dragBox {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 3px solid rgb(55, 49, 143);
+    background-color: pink;
+}
+
+// #div1 {
+//     width: 350px;
+//     height: 70px;
+//     padding: 10px;
+//     border: 1px solid rgb(55, 49, 143);
+//   }
+
+
+
+// =============================//
+// ========= DESIGN.HTML =========//
+// ============ END ============//
+
+
+
+
 
 //......................................
 

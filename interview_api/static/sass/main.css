@@ -61,11 +61,37 @@ main {
 }
 
 .page-footer {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   /* padding-top: 5vh; */
   text-align: right;
   bottom: -5vh;
   left: 0;
+}
+
+#designBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 80vw;
+  min-height: 90vh;
+  background-color: aqua;
+}
+
+#designBoard > div {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 3px solid #37318f;
+  background-color: pink;
+}
+
+.dragBox {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 3px solid #37318f;
+  background-color: pink;
 }
 
 #timeContainer > h4 {

@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
           <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
+
         <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection"/>
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-    <link rel="stylesheet" href="../main.scss">
-    
-    
+    <link rel="stylesheet" href="../static/sass/main.scss">
+
     <title>Developer Interview Guide</title>
 </head>
 <body>
@@ -47,12 +46,17 @@
                     <li class="nav-item">
                         <a href="{% url 'features_index'%}" class="">Features</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% url 'design_board'%}" class="">Design</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
 <main class="container">
-    
+
+
+
     {% block content %}
     
     {% endblock %}
