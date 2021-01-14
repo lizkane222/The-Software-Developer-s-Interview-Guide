@@ -12,7 +12,7 @@ urlpatterns = [
 
 
     # TOPICS & CATEGORIES ALL ORGANIZED
-    path('tree', views.tree, name="tree"),
+    path('tree/', views.tree, name="tree"),
     
 
     # VOCABULARY CARD INDEX

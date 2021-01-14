@@ -2,66 +2,166 @@ from django.db import models
 import string, random
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.forms import SimpleArrayField
-# SimpleArrayField(forms.CharField(max_length=100))
-
-def generate_unique_code():
-    length = 8
-
-    while True:
-        code = ''.join(random.choices(string.ascii_uppercase, k=length))
-        if Card.objects.filter(code=code).count() == 0:
-            break
-
-    return code
+from django.urls import reverse
 
 # Create your database models here.
 
-# Cards of vocabulary terms
-class Card(models.Model):
-    term = models.CharField(max_length=30, default="", unique=True)
-    altname = models.CharField(max_length=100, default="", unique=True)
-    subterms = models.CharField(max_length=200, default="", unique=False)
-    definitions = models.CharField(max_length=3000, default="", unique=False)
-    # definitions = ArrayField(
-    #     ArrayField(
-    #         models.CharField(max_length=3000, default="", blank=True, unique=False),
-    #     ),
-    #         size=100
-    # ),
-    category = models.CharField(max_length=200, default="", unique=False)
-    topic = models.CharField(max_length=200, default="", unique=False)
-    creator = models.CharField(max_length=1000, default="", unique=False)
-    codeSnippet = models.CharField(max_length=3000, default="", unique=False)
-    # codeSnippet = ArrayField(
-    #     ArrayField(
-    #         models.CharField(max_length=3000, default="", blank=True, unique=False),
-    #     ),
-    #         size=100
-    # ),
-    users_can_add_data = models.BooleanField(null=False, default=True)
-    created_at = models.DateTimeField(auto_now_add=True),
-
-    def __str__(self):
-        return f"{self.term} : {self.definitions}, Category: {self.category}, Creator: {self.creator}"
-
-# Software Languages
-class Language(models.Model):
-    name = models.CharField(max_length=50, default="", unique=True)
-    stack = models.CharField(max_length=30, default="", unique=False)
-    when_to_use = models.CharField(max_length=500, default="", unique=True)
-    best_features = models.CharField(max_length=200, default="", unique=True)
-
-    def __str__(self):
-        return f"{self.name}: is a part of the {self.stack} stack."
-
-# ADMIN ONLY MODEL
+    # ADMIN ONLY MODEL
 class Feature(models.Model):
-    name = models.CharField(max_length=100, default="", unique=True)
-    external_resource = models.CharField(max_length=100, default="", unique=False)
-    notes = models.CharField(max_length=1000, default="", unique=False)
-    page = models.CharField(max_length=100, default="", unique=False)
-    stack_field = models.CharField(max_length=100, default="", unique=False)
+    name = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    external_resource = models.CharField(max_length=100, blank=True, default="", unique=False)
+    notes = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    page = models.CharField(max_length=100, default="", blank=True, unique=False)
+    stack_field = models.CharField(max_length=100, default="", blank=True, unique=False)
     is_complete = models.BooleanField(null=False, default=False)
 
     def __str__(self):
         return f"[{self.name}] lookup {self.external_resource}. Use @ : {self.page} on the {self.stack_field}. Complete?: {self.is_complete}"
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, default="", blank=True, unique=True)
+
+    # many to many w/ Concept Model
+    # many to many w/ Card Model
+    # many to many w/ Language Model
+
+    def __str__(self):
+            return f"{self.name} : {self.notes}"
+
+
+class Code_Snippet(models.Model):
+    content = models.CharField(max_length=3000, default="", blank=True, unique=False)
+    url = models.CharField(max_length=3000, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    created_at = models.DateTimeField(auto_now_add=True),
+    
+    # many to many w/ Card Model
+    # many to many w/ Concept Model
+    # many to many w/ Language Model
+
+    def __str__(self):
+        return self.content
+
+
+class Image(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False, unique=False) 
+    url = models.CharField(max_length=200, default="", blank=True, unique=False)
+    alt_text = models.CharField(max_length=100, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    created_at = models.DateTimeField(auto_now_add=True),
+    
+    # many to many w/ Card Model
+    # many to many w/ Concept Model
+    # many to many w/ Language Model
+
+    def __str__(self):
+        return self.url
+
+
+class Resource(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    url = models.CharField(max_length=100, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    created_at = models.DateTimeField(auto_now_add=True),
+    
+    # many to many w/ Card Model
+    # many to many w/ Concept Model
+    # many to many w/ Language Model
+
+    def __str__(self):
+            return f"{self.name} : {self.url}"
+
+
+class Text(models.Model):
+    heading = models.CharField(max_length=50, null=False, blank=False, unique=True)
+    subheading = models.CharField(max_length=75, default="", blank=True, unique=False)
+    content = models.TextField(max_length=5000, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=100, default="", blank=True, unique=False)
+    created_at = models.DateTimeField(auto_now_add=True),
+    
+    # many to many w/ Card Model
+    # many to many w/ Concept Model
+    # many to many w/ Language Model
+    
+    def __str__(self):
+        return f"{self.heading} : {self.subheading} by: {self.creator}"
+
+
+
+class Card(models.Model):
+    term = models.CharField(max_length=30, null=False, blank=False, unique=True)
+    altname = models.CharField(max_length=100, blank=True, default="", unique=True)
+    subterms = models.CharField(max_length=200, blank=True, default="", unique=False)
+    topic = models.CharField(max_length=200, blank=True, default="", unique=False)
+    users_can_add_data = models.BooleanField(null=False, default=True)
+    created_at = models.DateTimeField(auto_now_add=True),
+    img = models.CharField(max_length=200, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    
+    code_snippets = models.ManyToManyField(Code_Snippet)
+    categories = models.ManyToManyField(Category)
+    images = models.ManyToManyField(Image)
+    resources = models.ManyToManyField(Resource)
+    texts = models.ManyToManyField(Text)
+    # many to many w/ Concept Model
+
+    def __str__(self):
+        return f"{self.term} Creator: {self.creator}"
+
+
+class Definition(models.Model):
+    content = models.CharField(max_length=3000, null=False, blank=False, unique=False)
+    
+    cards = models.ForeignKey(Card, on_delete=models.CASCADE)
+
+    def __str__(self):
+            return f"{self.content} : [{self.cards}]"
+
+
+
+class Language(models.Model):
+    name = models.CharField(max_length=50, null=False, blank=False, unique=True)
+    stack = models.CharField(max_length=30, default="", blank=True, unique=False)
+    when_to_use = models.CharField(max_length=500, default="", blank=True, unique=False)
+    best_features = models.CharField(max_length=200, default="", blank=True, unique=False)
+    
+    cards = models.ManyToManyField(Card)
+    code_Snippets = models.ManyToManyField(Code_Snippet)
+    categories = models.ManyToManyField(Category)
+    images = models.ManyToManyField(Image)
+    resources = models.ManyToManyField(Resource)
+    texts = models.ManyToManyField(Text) 
+
+    def __str__(self):
+        return f"{self.name}: is a part of the {self.stack} stack."
+
+class Concept(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    notes = models.TextField(max_length=5000, default="", blank=True, unique=False)
+    creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
+    
+    cards = models.ManyToManyField(Card)
+    languages = models.ManyToManyField(Language)
+    code_Snippets = models.ManyToManyField(Code_Snippet)
+    categories = models.ManyToManyField(Category)
+    images = models.ManyToManyField(Image)
+    resources = models.ManyToManyField(Resource)
+    texts = models.ManyToManyField(Text) 
+
+    def __str__(self):
+        return f"{self.name} : {self.notes}"
+
+
+class Profile(models.Model):
+    cards = models.ManyToManyField(Card)
+    languages = models.ManyToManyField(Language)
+    code_Snippets = models.ManyToManyField(Code_Snippet)
+    categories = models.ManyToManyField(Category)
+    images = models.ManyToManyField(Image)
+    resources = models.ManyToManyField(Resource)
+    concepts = models.ManyToManyField(Concept)
+    texts = models.ManyToManyField(Text)
+
+    def __str__(self):
+        return f"CARDS: {self.cards}. LANGUAGES: {self.languages}. CODE: {self.code_Snippets}. Categories {self.categories} {self.images} {self.resources} {self.concepts} {self.texts}"

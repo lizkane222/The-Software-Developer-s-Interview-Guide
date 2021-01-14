@@ -15,7 +15,7 @@
 
     <div class="col s5">
         <div>
-            <form action="">
+            <form action="{% url 'features_index' %}" method="POST">
                 <h5>Create New Feature</h5>
                 {% csrf_token %}
                 <div>
@@ -35,7 +35,7 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{feature.name}}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">{{feature.external_resource}}</a></p>
+                <p><a href={{feature.external_resource}} target="_blank">{{feature.external_resource}}</a></p>
             </div>
             <div class="card-action">
                 <p><a href="#">{{feature.page}}</a></p>

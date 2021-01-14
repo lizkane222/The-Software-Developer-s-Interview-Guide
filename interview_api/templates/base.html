@@ -19,30 +19,14 @@
     <title>Developer Interview Guide</title>
 </head>
 <body>
-    <!-- <h1 id="siteName">Developer Interview Prep Guide</h1>
-    <hr/> -->
-    <ul id="dropdown-terms" class="dropdown-content">
-        <li>
-            <a href="cards/">All Terms</a>
-        </li>
-        <li class="divider"></li>
-        {% for card in cards %}
-        <li><a href="">{{card.term}}</a></li>
-        {% endfor %}
-    </ul>
+    
+    
+    
 
-    <ul id="dropdown-categories" class="dropdown-content">
-        <li>
-            <a href="/tree">All Terms</a>
-        </li>
-        <li class="divider"></li>
-        {% for language in languages %}
-        <li><a href="">{{language.name}}</a></li>
-        {% endfor %}
-    </ul>
-
-    <header class="navbar-fixed teal lighten-2">
-        <nav class="header-content">
+    {% comment %} <h3 id="siteName">Developer Interview Prep Guide</h3> {% endcomment %}
+    <header class="navbar-fixed ">
+    <!-- <hr/> -->
+        <nav class="header-content teal lighten-2">
             <div class="nav-wrapper">
                 <ul class="nav-list">
                     <li class="nav-item">
@@ -52,16 +36,16 @@
                 <!-- <div id="searchBar" class="center small">
                     <input type="search" placeholder="search for a term" class="center width-Quatre"><input type="submit" value="search">
                 </div> -->
-                <ul class="right hide-on-med-and-down">
-                    <li class="nav-item dropdown-trigger" id="tree-nav" data-target="dropdown-categories">
-                        <a href="#!">Tree <i class="material-icons right">arrow_drop_down</i></a>
+                <ul class="right">
+                    <li class="dropdown-trigger nav-item" id="tree-nav" data-target="dropdown-categories">
+                        <a href="{% url 'tree'%}">Tree <i class="material-icons right">arrow_drop_down</i></a>
                     </li>
                     
-                    <li class="nav-item dropdown-trigger" data-target="dropdown-terms">
-                        <a href="#!">Terms <i class="material-icons right">arrow_drop_down</i></a>
+                    <li class="dropdown-trigger nav-item" data-target="dropdown-terms">
+                        <a href="{% url 'cards_index'%}">Terms <i class="material-icons right">arrow_drop_down</i></a>
                     </li>
                     <li class="nav-item">
-                        <a href="features/" class="">Features</a>
+                        <a href="{% url 'features_index'%}" class="">Features</a>
                     </li>
                 </ul>
             </div>
@@ -74,15 +58,15 @@
     {% endblock %}
 </main>
 
-<footer class="page-footer ">
+<footer class="page-footer teal lighten-2">
     <div>Sponsored by 🧡 Swarles 😻 & 🐈 Tucker</div>
 </footer>
 
 <script type="text/javascript" src="../static/materialize/js/materialize.min.js">
-    // $(document).onload = {
+
         $(".dropdown-trigger").dropdown({hover:false});
 
-    // }
+
 </script>
 
 </body>

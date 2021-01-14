@@ -1,39 +1,27 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 #timeContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
+  max-width: 10vw;
 }
 
 .width-Quatre {
   max-width: 25vw;
-  margin: 0 0;
-}
-
-#timeContainer > h4 {
-  z-index: 1;
-  margin-bottom: -15vh;
-}
-
-#timeContainer > img {
-  z-index: -1;
-  display: absolute;
-  width: 100%;
-}
-
-#timeContainer > p {
-  z-index: 1;
+  margin: -10vh 0;
 }
 
 #siteName {
-  position: relative;
+  position: absolute;
+  line-height: 3rem;
+  font-size: 3rem;
+  margin: 0vh 0vw;
+  top: 0;
+  max-height: 5vh;
 }
 
 .navbar-fixed {
@@ -78,6 +66,21 @@ main {
   text-align: right;
   bottom: -5vh;
   left: 0;
+}
+
+#timeContainer > h4 {
+  z-index: 1;
+  margin-bottom: -15vh;
+}
+
+#timeContainer > img {
+  z-index: -1;
+  display: absolute;
+  width: 100%;
+}
+
+#timeContainer > p {
+  z-index: 1;
 }
 
 #newCardHome {

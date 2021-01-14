@@ -1,35 +1,8 @@
 from django.forms import ModelForm
-from .models import Card, Language, Feature
+from .models import Card, Language, Feature, Category, Code_Snippet, Image, Text, Concept, Profile, Resource, Definition
 from django import forms
 # from django.contrib.postgres.forms import SimpleArrayField
-
-
-class Card_Form(ModelForm):
-    term = forms.CharField()
-    altname = forms.CharField()
-    subterms = forms.CharField()
-    definitions = forms.CharField()
-    # definitions = SimpleArrayField(forms.CharField(max_length=100))
-    category = forms.CharField()
-    # category = forms.ArrayField()
-    topic = forms.CharField()
-    codeSnippet = forms.CharField()
-    # codeSnippet = SimpleArrayField(forms.CharField(max_length=3000))
-    
-    class Meta:
-        model = Card
-        fields = ['term', "altname", "subterms", "definitions", "category", "topic", "codeSnippet"]
-
-
-class Language_Form(ModelForm):
-    name = forms.CharField()
-    stack = forms.CharField()
-    when_to_use = forms.CharField()
-    best_features = forms.CharField()
-
-    class Meta:
-        model = Language
-        fields = ["name", "stack", "when_to_use", "best_features"]
+from django.contrib.postgres.fields import ArrayField
 
 
 class Feature_Form(ModelForm):
@@ -43,3 +16,125 @@ class Feature_Form(ModelForm):
     class Meta:
         model = Feature
         fields = ["name", "external_resource", "notes", "page", "stack_field", "is_complete"]
+
+
+class Category_Form(ModelForm):
+    name = forms.CharField()
+
+    languages = forms.ModelChoiceField(queryset=Language.objects.all())
+
+    class Meta:
+        model = Category
+        fields = ["name", "languages"]
+
+
+class Code_Snippet_Form(ModelForm):
+    content = forms.CharField()
+    url = forms.CharField()
+
+    class Meta:
+        model = Code_Snippet
+        fields = ["content", "url"]
+
+
+class Image_Form(ModelForm):
+    name = forms.CharField()
+    url = forms.CharField()
+    alt_text = forms.CharField()
+    creator = forms.CharField()
+
+    class Meta:
+        model = Image
+        fields = ["name", "url", "alt_text", "creator"]
+
+
+class Text_Form(ModelForm):
+    name = forms.CharField()
+    heading = forms.CharField()
+    subheading = forms.CharField()
+    content = forms.CharField(widget=forms.Textarea, label='')
+    creator = forms.CharField()
+
+    class Meta:
+        model = Text
+        fields = ["name", "heading", "subheading", "content", "creator"]
+
+
+class Card_Form(ModelForm):
+    term = forms.CharField()
+    altname = forms.CharField()
+    subterms = forms.CharField()
+    topic = forms.CharField()
+    img = forms.CharField()
+    creator = forms.CharField()
+
+    code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all())
+    categories = forms.ModelChoiceField(queryset=Category.objects.all())
+    images = forms.ModelChoiceField(queryset=Image.objects.all())
+    resources = forms.ModelChoiceField(queryset=Resource.objects.all())
+    concepts = forms.ModelChoiceField(queryset=Concept.objects.all())
+    texts = forms.ModelChoiceField(queryset=Text.objects.all())
+    
+    class Meta:
+        model = Card
+        fields = ['term', "altname", "subterms", "topic", "img", "creator", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
+
+
+class Definition_Form(ModelForm):
+    content = forms.CharField()
+    cards = forms.ModelChoiceField(queryset=Card.objects.all())
+
+    class Meta:
+        model = Definition
+        fields = ["content", "cards"]
+
+
+class Language_Form(ModelForm):
+    name = forms.CharField()
+    stack = forms.CharField()
+    when_to_use = forms.CharField()
+    best_features = forms.CharField()
+
+    cards = forms.ModelChoiceField(queryset=Card.objects.all())
+    code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all())
+    categories = forms.ModelChoiceField(queryset=Category.objects.all())
+    images = forms.ModelChoiceField(queryset=Image.objects.all())
+    resources = forms.ModelChoiceField(queryset=Resource.objects.all())
+    concepts = forms.ModelChoiceField(queryset=Concept.objects.all())
+    texts = forms.ModelChoiceField(queryset=Text.objects.all())
+    class Meta:
+        model = Language
+        fields = ["name", "stack", "when_to_use", "best_features", "cards", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
+
+
+class Concept_Form(ModelForm):
+    name = forms.CharField()
+    notes = forms.CharField(widget=forms.Textarea, label='')
+
+    cards = forms.ModelChoiceField(queryset=Card.objects.all())
+    languages = forms.ModelChoiceField(queryset=Language.objects.all())
+    code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all())
+    categories = forms.ModelChoiceField(queryset=Category.objects.all())
+    images = forms.ModelChoiceField(queryset=Image.objects.all())
+    resources = forms.ModelChoiceField(queryset=Resource.objects.all())
+    concepts = forms.ModelChoiceField(queryset=Concept.objects.all())
+    texts = forms.ModelChoiceField(queryset=Text.objects.all())
+    
+    class Meta:
+        model = Concept
+        fields = ["name", "notes", "creator", "cards", "languages", "code_snippets", "categories", "images", "resources", "texts", ]
+
+
+class Profile_Form(ModelForm):
+    cards = forms.ModelChoiceField(queryset=Card.objects.all())
+    languages = forms.ModelChoiceField(queryset=Language.objects.all())
+    code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all())
+    categories = forms.ModelChoiceField(queryset=Category.objects.all())
+    images = forms.ModelChoiceField(queryset=Image.objects.all())
+    resources = forms.ModelChoiceField(queryset=Resource.objects.all())
+    concepts = forms.ModelChoiceField(queryset=Concept.objects.all())
+    texts = forms.ModelChoiceField(queryset=Text.objects.all())
+
+    class Meta:
+        model = Profile
+        fields = ["cards", "languages", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
