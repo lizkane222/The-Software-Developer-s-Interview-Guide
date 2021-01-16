@@ -13,7 +13,7 @@
     <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection"/>
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-    <link rel="stylesheet" href="../static/sass/main.scss">
+    <link rel="stylesheet" href="../static/sass/main.css">
 
     <title>Developer Interview Guide</title>
 </head>
@@ -32,6 +32,15 @@
                         <a href="/" class="left brand-logo">🏡</a>
                     </li>
                 </ul>
+                <div class="center">
+                <form id="navSearch">
+                    <div class="input-field" >
+                    <input id="search" type="search" placeholder="LOOK UP WHAT TO STUDY-  term: 'API'  |  concept: 'RESTful routing'  |  language: 'Python'" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    </div>
+                </form>
+                </div>
                 <!-- <div id="searchBar" class="center small">
                     <input type="search" placeholder="search for a term" class="center width-Quatre"><input type="submit" value="search">
                 </div> -->
@@ -52,9 +61,21 @@
                 </ul>
             </div>
         </nav>
-    </header>
-<main class="container">
+    {% block fabhover %}
+        {% comment %} {%include 'fabhover.html'%} {% endcomment %}
+    {% endblock fabhover %} 
 
+    {% block fabtoolbar %}
+        {% comment %} {%include 'fabtoolbar.html'%} {% endcomment %}
+    {% endblock fabtoolbar %}
+    </header>
+
+
+
+<main class="container mainContent">
+    {% block sidebar %}
+        {% include 'sidebar.html' %}
+    {% endblock %}
 
 
     {% block content %}
@@ -66,8 +87,9 @@
     <div>Sponsored by 🧡 Swarles 😻 & 🐈 Tucker</div>
 </footer>
 
-<script type="text/javascript" src="../static/materialize/js/materialize.min.js">
-
+<script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
         $(".dropdown-trigger").dropdown({hover:false});
 
 

@@ -30,12 +30,20 @@
     // background-image: url("https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif") alt="time lapse of sunset over water";
 }
 
+header {
+
+}
 
 .width-Quatre {
     max-width: 25vw;
     margin: -10vh 0 ;
 }
 
+.mainContent {
+    margin: 7vh 0 0 0;
+    overflow: scroll;
+    min-width: 90vw;
+}
     
 #siteName {
     position: absolute;
@@ -50,36 +58,50 @@
     position: fixed;
     top: 0;
     left: 0;
+    max-height: 7vh;
 }
-.nav-list {
+.nav-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
 .nav-list>.nav-item {
-    margin: 5vh 15vw;
-    position: relative;
-    left: 15vw;
+    // margin: 5vh 15vw;
+    // position: relative;
+    // left: 15vw;
 }
 
-#searchBar {
-    max-width: 25vw;
-    display: inline-block;
+// #searchBar {
+//     max-width: 25vw;
+//     display: inline-block;
+// }
+
+
+#navSearch {
+    min-width: 40vw;
+    // margin-top: 0;
+    // margin-left: 10vw;
+    // margin-right: 0;
 }
+
 #tree-nav {
-    margin: 0 15vw;
+    // margin: 0 15vw;
 }
 
 
 main {
     flex: 1 0 auto;
+    display: flex;
+    min-width: 80vw;
+    min-height: 90vh;
 }
 
 .page-footer {
     position: sticky;
     /* padding-top: 5vh; */
-    text-align: right;
-    bottom: -5vh;
+    text-align: center;
+    margin-bottom: 0;
+    top: 95vh;
     left: 0;
 }
 
@@ -93,27 +115,267 @@ main {
 // ========= DESIGN.HTML =========//
 // =============================//
 
-#designBoard {
-    display: flex;
-    min-width: 80vw;
-    min-height: 90vh;
-    background-color: aqua;
-}
-#designBoard>div {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 3px solid rgb(55, 49, 143);
-    background-color: pink;
+// fab-edit button animate to toolbar
+.toolbar {
+    top: 8vh;
+    border: 5px 5px solid teal;
+    position: fixed;
+    max-height: 7vh;
+    // min-height: 5vh;
+    // padding: 1vh 0;
 }
 
-.dragBox {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 3px solid rgb(55, 49, 143);
-    background-color: pink;
+.fixed-action-btn.active ul {
+    visibility: visible;
+    border: 5px 5px solid teal;
 }
+
+#toolbarList {
+    border: 5px 5px solid teal;
+}
+
+#toolbarList {
+    margin: 0 5vw;
+}
+
+#toolbarList>li {
+    margin: 0 5.5vw;
+    height: 95%;
+    align-self: center;
+}
+
+.editIcons {
+    align-self: center;
+    // transition: ;
+}
+
+.editIcons:hover {
+    transform: scale(1.2) 200ms;
+}
+
+
+#createdObjectRow {
+    background-color: rgba(245,245,245,1)
+}
+
+#designBoard {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-width: 85vw;
+    max-width: 90vw;
+    margin: 9vh 0 0 0;
+    min-height: 90vh;
+    // background-color: aqua;
+    position: absolute;
+    right: 0;
+}
+
+// #designBoard>div {
+//     min-width: 150px;
+//     max-width: 50vw;
+//     min-height: 70px;
+//     max-height: 10%;
+//     min-width: 100%;
+//     max-width: 100%;
+//     min-height: 8%;
+//     max-height: 8%;
+//     margin: .5%;
+//     border: 1px solid rgba(40,40,40,.5);
+//     background-color: rgb(50,100,175);
+// }
+
+#designBoard>.designRow {
+    display: flex;
+    // flex-wrap: nowrap;
+    // flex-direction: column;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 5vh;
+    max-height: 30vh;
+    // margin: .5%;
+    // border: 1px solid rgba(40,40,40,.1);
+    // background-color: rgb(50,100,175);
+}
+
+.designRow>.dragBox {
+    display: flex;
+    min-width: 80px;
+    max-width: 50vw;
+    min-height: 5vh;
+    max-height: 30vh;
+    border: .1px dotted rgba(40,40,40,.1);
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    // margin: 0 .25%;
+    // padding: .25%;
+    // background-color: rgb(50,100,175);
+}
+
+// .dragBox {
+//     border: 1px solid rgb(55, 49, 143);
+//     background-color: blueviolet;
+//     padding: .25%;
+// }
+
+
+.draggable {
+    max-width: 25vw;
+}
+
+.draggable>:first-child {
+    margin: 0 0;
+    padding: 0 0;
+    background-color: green;
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+}
+
+
+// SIDEBAR
+#slide-out {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 2vw 2vh 0;
+    position: relative;
+    left: 0;
+    top: 8vh;
+    transform: translateX(-105%);
+}
+
+
+
+#drawer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color:rgb(155, 49, 110);
+    margin: 0 2vw 2vh 0;
+    position: relative;
+    left: 0;
+    top: 8vh;
+}
+
+.drawerClosed {
+    width: 3vw;
+    height: 100vh;
+}
+
+.drawerOpen {
+    width: 10vw;
+    height: 100vh;
+    overflow: scroll;
+}
+
+
+#drawer>.dragbox {
+    max-width: 95%;
+    margin: 1% 1%;
+    // height: ;
+    // padding: 10px;
+    display: flex;
+    min-width: 80%;
+    max-width: 98%;
+    min-height: 5vh;
+    max-height: 30vh;
+    // border: 1px solid rgba(40,40,40,.1);
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    border: 3px solid rgb(155, 49, 110);
+    background-color: black;
+}
+#createdObjectRow {
+    flex: -1;
+}
+
+#designRow0 {
+    flex: 0;
+}
+
+#designRow1 {
+    flex: 1;
+}
+
+#designRow2 {
+    flex: 2;
+}
+
+#designRow3 {
+    flex: 3;
+}
+
+#designRow4 {
+    flex: 4;
+}
+
+#designRow5 {
+    flex: 5;
+}
+
+#designRow6 {
+    flex: 6;
+}
+
+#designRow7 {
+    flex: 7;
+}
+
+#designRow8 {
+    flex: 8;
+}
+
+#designRow9 {
+    flex: 9;
+}
+
+
+
+
+.col1 {
+    flex: 1;
+}
+
+.col2 {
+    flex: 2;
+}
+
+.col3 {
+    flex: 3;    
+}
+
+.col4 {
+    flex: 4;    
+}
+
+.col5 {
+    flex: 5;    
+}
+
+.col6 {
+    flex: 6;    
+}
+
+.col7 {
+    flex: 7;    
+}
+
+.col8 {
+    flex: 8;    
+}
+
+.col9 {
+    flex: 9;    
+}
+
+.col10 {
+    flex: 10;    
+}
+
 
 // #div1 {
 //     width: 350px;
@@ -138,19 +400,36 @@ main {
 // ========= HOME.HTML =========//
 // =============================//
 
+#timeContainer {
+    display: flex;
+    
+    border: 2px 2px solid green;
+    max-width: 25vw;
+    max-height: 30vh;
+    background-color: red;
+}
+
+.grab {
+    cursor: grab;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
 
 #timeContainer>h4 {
-    z-index:1;
-    margin-bottom: -15vh;
+    // z-index:1;
+    // margin-bottom: -15vh;
+    // background-image: url("https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif");
 }
 #timeContainer>img {
-    z-index:-1;
+    // z-index:-1;
     display: absolute;
     width: 100%;
 }
 
 #timeContainer>p {
-    z-index:1;
+    // z-index:1;
 }
 
 

@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<link>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Developer Interview Prep</title>
-    <!-- <link rel="stylesheet" href="../styles.css">a -->
+{% extends 'base.html' %}
+{% comment %} {% include 'favhover.html' %} {% endcomment %}
+{% comment %} {% block fabhover%}
+{% endblock %} {% endcomment %}
+
+{% block fabhover%}
+    {%include 'fabhover.html'%}
+{% endblock %}
 
 
-</head>
-<body>
-    {% extends 'base.html' %}
-    {% block content %}
 
-    <div id="timeContainer">
-        <h4>The current time is <br/>{{timezone}}</h4>
-        <img src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water">
-        <p>{{now}}</p>
+
+{% block content %}
+    {% comment %} {% block fab_edit %} {% endcomment %}
+    
+
+    <div id="timeContainer draggable">
+        <h4 class="draggable">The current time is <br/>{{timezone}}</h4>
+        <img class="draggable" src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water">
+        <p class="draggable">{{now}}</p>
     </div>
 
 
@@ -46,7 +47,22 @@
         <input type="submit" value="create term">
     </div> -->
 
+    {% comment %} {% endblock %} {% endcomment %}
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
 
 {% endblock %}
-</body>
-</html>

@@ -5,6 +5,10 @@ from django import forms
 from django.contrib.postgres.fields import ArrayField
 
 
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET ='devguideassets'
+
+
 class Feature_Form(ModelForm):
     name = forms.CharField()
     external_resource = forms.CharField()
@@ -138,3 +142,5 @@ class Profile_Form(ModelForm):
     class Meta:
         model = Profile
         fields = ["cards", "languages", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
+
+
