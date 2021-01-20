@@ -176,6 +176,11 @@
         let data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
     }
+
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+
 </script>
     {% comment %} {% endblock %} {% endcomment %}
 {% endblock %}
