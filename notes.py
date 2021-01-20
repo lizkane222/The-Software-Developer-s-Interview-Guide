@@ -22,3 +22,6 @@
 
 
 
+RULES FOR NEW ELEMENTS:
+
+Images are divs so they are inherently the parent div and the image is the child

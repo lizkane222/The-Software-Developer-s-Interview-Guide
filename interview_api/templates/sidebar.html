@@ -1,6 +1,6 @@
   {% comment %} <nav> <!-- navbar content here  --> </nav> {% endcomment %}
 
-  <ul id="slide-out" class="sidenav">
+  {% comment %} <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
       <div class="background">
         <img src="../media/stockphotos/coffee1.jpg">
@@ -16,56 +16,60 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+ {% endcomment %}
 
-{% comment %} 
-<div id="drawer" >
-    <button id="toggleDrawer">toggle</button>
-    <div id="sideBarColumn" class="dragbox">
-        <div id="sideBar1" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar2" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar3" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar4" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar5" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar6" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar7" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar8" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar9" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar10" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar11" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar12" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar13" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar14" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar15" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar16" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar17" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar18" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar19" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar20" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar21" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar22" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar23" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar24" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar25" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar26" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar27" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar28" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar29" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar30" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar31" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar32" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar33" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar34" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar35" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar36" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar37" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar38" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar39" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="sideBar40" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="slide_sidebar" class="sidenav sidenav-fixed dragBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <a href="#" class="sidebar-trigger" data-target="slide_sidebar"><i class="material-icons">menu</i></a>
+        <h4><a class="subheader" id="sidebarSubheader">Save Some Designs</a></h4>
+
+        <ul id="sidebar-list">
+            <li><div id="sideBar1" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar2" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar3" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar4" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar5" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar6" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar7" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar8" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar9" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar10" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar11" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar12" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar13" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar14" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar15" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar16" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar17" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar18" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar19" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar20" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar21" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar22" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar23" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar24" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar25" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar26" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar27" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar28" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar29" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar30" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar31" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar32" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar33" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar34" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar35" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar36" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar37" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar38" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar39" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div id="sideBar40" class="dragbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+        </ul>
     </div>
-</div> {% endcomment %}
+
+
 
 <script>
-
+{% comment %} DRAGABLE {% endcomment %}
     function allowDrop(ev) {
         ev.preventDefault();
     }
@@ -80,28 +84,9 @@
         ev.target.appendChild(document.getElementById(data));
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        let elems = document.querySelectorAll('.sidenav');
-        let instances = M.Sidenav.init(elems, options);
-    });
+{% comment %} SIDENAV {% endcomment %}
+    {% comment %} const slide_sidebar = document.querySelectorAll(".sidebar"); {% endcomment %}
+    {% comment %} M.Sidenav.init(slide_sidebar, {}); {% endcomment %}
 
-    let instance = M.Sidenav.getInstance(elem);
-    $('.sidenav-trigger').click(
-
-    instance.open();
-    )
-
-    {% comment %} $(document).ready(function(){
-    $("#toggleDrawer").click(function(){
-        $("#drawer").toggleClass("drawerOpen");
-    });
-    }); {% endcomment %}
-
-    
-
-{% comment %} $(document).ready(function(){
-    $('.sidenav').sidenav();
-  }); {% endcomment %}
-    {% comment %} $('#toggleDrawer').click(function() {$('#drawer').toggleClass('drawerOpen')} {% endcomment %}
-
+   
 </script>

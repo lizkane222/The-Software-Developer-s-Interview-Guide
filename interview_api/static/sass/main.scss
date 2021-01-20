@@ -4,7 +4,10 @@
 
 :root {
     // colors
-
+    --white-main: rgba(245,245,245,1);
+    --white-semi-transparent: rgba(245,245,245,.5);
+    --grey-main: rgba(40,40,40,.1);
+    --grey-semi-transparent: rgba(40,40,40,.1);;
 
 
     // fonts
@@ -38,13 +41,23 @@ header {
     max-width: 25vw;
     margin: -10vh 0 ;
 }
-
-.mainContent {
-    margin: 7vh 0 0 0;
-    overflow: scroll;
-    min-width: 90vw;
-}
     
+main {
+    flex: 1 0 auto;
+    display: flex;
+    top: 6.7vh;
+    min-width: 80vw;
+    min-height: 90vh;
+    max-height: 300vh;
+    margin: 7vh 0 0 350px;
+    // left: 320px;
+    overflow: scroll;
+    // min-width: 90vw;
+    left: 320px;
+
+
+}
+
 #siteName {
     position: absolute;
     line-height: 3rem;
@@ -65,10 +78,25 @@ header {
     justify-content: space-between;
 }
 
-.nav-list>.nav-item {
-    // margin: 5vh 15vw;
+.nav-list {
+    display: flex;
+    justify-self: start;
+    align-items: flex-start;
+    // margin: 0vh 5vw;
     // position: relative;
+
     // left: 15vw;
+}
+
+#logoName {
+    font-size: .5em;
+    margin-left: 1%;
+}
+
+#logoBrandMini {
+    padding: 0;
+    font-size: 2em;
+    margin-top: 1.5vh;
 }
 
 // #searchBar {
@@ -78,7 +106,11 @@ header {
 
 
 #navSearch {
-    min-width: 40vw;
+    min-width: 30vw;
+    max-width: 40vw;
+    margin-right: -25vw;
+    // max-width: 60vw;
+    // position: relative;
     // margin-top: 0;
     // margin-left: 10vw;
     // margin-right: 0;
@@ -96,13 +128,28 @@ main {
     min-height: 90vh;
 }
 
-.page-footer {
-    position: sticky;
-    /* padding-top: 5vh; */
+#mainOffset {
+    left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    #mainOffset {
+      padding-left: 100px;
+    }
+}
+
+
+
+footer {
+    bottom: 0;
+    position: fixed;
     text-align: center;
     margin-bottom: 0;
-    top: 95vh;
     left: 0;
+    z-index: 1000;
+    min-width: 100vw;
+    align-content: center;
+    align-items: center;
 }
 
 // =============================//
@@ -121,6 +168,7 @@ main {
     border: 5px 5px solid teal;
     position: fixed;
     max-height: 7vh;
+    
     // min-height: 5vh;
     // padding: 1vh 0;
 }
@@ -128,20 +176,19 @@ main {
 .fixed-action-btn.active ul {
     visibility: visible;
     border: 5px 5px solid teal;
+    left: 300px;
+}
+
+.fixed-action-btn.active ul>li {
+    margin: 0 5.5vw;
+    height: 95%;
+    align-self: center;
+    border-radius: 50%;
 }
 
 #toolbarList {
     border: 5px 5px solid teal;
-}
-
-#toolbarList {
-    margin: 0 5vw;
-}
-
-#toolbarList>li {
-    margin: 0 5.5vw;
-    height: 95%;
-    align-self: center;
+    // margin: 0 5vw;
 }
 
 .editIcons {
@@ -155,20 +202,22 @@ main {
 
 
 #createdObjectRow {
-    background-color: rgba(245,245,245,1)
+    background-color: var(--white-main);
 }
 
 #designBoard {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    min-width: 85vw;
+    min-width: 82vw;
     max-width: 90vw;
-    margin: 9vh 0 0 0;
+    margin: 15vh 0 0 320px;
     min-height: 90vh;
+    // max-height: 300vh;
     // background-color: aqua;
     position: absolute;
-    right: 0;
+    right: 1vw;
+    overflow: scroll;
 }
 
 // #designBoard>div {
@@ -199,15 +248,16 @@ main {
 }
 
 .designRow>.dragBox {
-    display: flex;
     min-width: 80px;
     max-width: 50vw;
     min-height: 5vh;
     max-height: 30vh;
-    border: .1px dotted rgba(40,40,40,.1);
+    border: .1px dotted var(--grey-semi-transparent);
+    display: flex;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
+    flex-flow: column wrap;
     // margin: 0 .25%;
     // padding: .25%;
     // background-color: rgb(50,100,175);
@@ -222,73 +272,74 @@ main {
 
 .draggable {
     max-width: 25vw;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    overflow: visible;
 }
 
 .draggable>:first-child {
     margin: 0 0;
-    padding: 0 0;
-    background-color: green;
+    padding: 10px 10px;
+    background-color: var(--white-semi-transparent);
     width: 100%;
     height: 100%;
     align-self: stretch;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    overflow: visible;;
 }
 
 
 // SIDEBAR
 #slide-out {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 2vw 2vh 0;
+    margin: 0 0 2vh 2vw;
     position: relative;
     left: 0;
     top: 8vh;
+    background-color: yellow;
     transform: translateX(-105%);
 }
+#slide_sidebar {
+    top: 6.7vh;
+    max-width: 10vw;
+    min-width: 3vw;
+}
 
-
-
-#drawer {
+#sidebar_list {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color:rgb(155, 49, 110);
-    margin: 0 2vw 2vh 0;
-    position: relative;
-    left: 0;
-    top: 8vh;
-}
-
-.drawerClosed {
-    width: 3vw;
-    height: 100vh;
-}
-
-.drawerOpen {
-    width: 10vw;
-    height: 100vh;
-    overflow: scroll;
-}
-
-
-#drawer>.dragbox {
-    max-width: 95%;
-    margin: 1% 1%;
-    // height: ;
-    // padding: 10px;
-    display: flex;
-    min-width: 80%;
-    max-width: 98%;
-    min-height: 5vh;
-    max-height: 30vh;
-    // border: 1px solid rgba(40,40,40,.1);
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
-
-    border: 3px solid rgb(155, 49, 110);
-    background-color: black;
 }
+
+#sidebar-list>li{
+    margin: 1% 1%;
+    display: flex;
+    min-width: 8px;
+    max-width: 98%;
+    min-height: 5vh;
+    max-height: 30vh;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    border: 1px solid var(--grey-semi-transparent);
+    padding: 5px;
+}
+
+#slide_sidebar>h4 {
+    // align-self: center;
+    margin: 0 0;
+    padding: 0 0;
+    text-align: center;
+}
+
 #createdObjectRow {
     flex: -1;
 }
@@ -332,9 +383,6 @@ main {
 #designRow9 {
     flex: 9;
 }
-
-
-
 
 .col1 {
     flex: 1;
@@ -402,7 +450,6 @@ main {
 
 #timeContainer {
     display: flex;
-    
     border: 2px 2px solid green;
     max-width: 25vw;
     max-height: 30vh;

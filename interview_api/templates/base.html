@@ -10,8 +10,10 @@
         <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection">
 
+    <link rel="stylesheet" href="https:cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0css/materialize.min.css">
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> {% endcomment %}
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <link rel="stylesheet" href="../static/sass/main.css">
 
@@ -20,36 +22,63 @@
 <body>
     
     
-    
+    <ul id="dropdown-terms" class="dropdown-content">
+        <li>
+            <a href="cards/">All Terms</a>
+        </li>
+        <li class="divider"></li>
+        {% for card in cards %}
+        <li><a href="">{{card.term}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul id="dropdown-categories" class="dropdown-content">
+        <li>
+            <a href="/tree">All Languages</a>
+        </li>
+        <li class="divider"></li>
+        {% for language in languages %}
+        <li><a href="">{{language.name}}</a></li>
+        {% endfor %}
+    </ul>
+
 
     {% comment %} <h3 id="siteName">Developer Interview Prep Guide</h3> {% endcomment %}
     <header class="navbar-fixed ">
     <!-- <hr/> -->
         <nav class="header-content teal lighten-2">
             <div class="nav-wrapper">
-                <ul class="nav-list">
+                <ul class="nav-list hide-on-med-and-down">
                     <li class="nav-item">
-                        <a href="/" class="left brand-logo">🏡</a>
+                        <a href="/" id="logoName" class="left brand-logo"><h5>Developers Interview Guide</h5></a>
                     </li>
+                    {% comment %} <li class="sidenav-trigger">
+                        <a href="#"><i class="material-icons">menu</i></a>
+                    </li> {% endcomment %}
                 </ul>
-                <div class="center">
-                <form id="navSearch">
-                    <div class="input-field" >
-                    <input id="search" type="search" placeholder="LOOK UP WHAT TO STUDY-  term: 'API'  |  concept: 'RESTful routing'  |  language: 'Python'" required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
+
+                    <div class="right hide-on-med-and-down">
+                        <form id="navSearch">
+                            <div class="input-field" >
+                            <input id="search" type="search" placeholder="LOOK UP WHAT TO STUDY-  term: 'API'  |  concept: 'RESTful routing'  |  language: 'Python'" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                            </div>
+                        </form>
                     </div>
-                </form>
-                </div>
+
                 <!-- <div id="searchBar" class="center small">
                     <input type="search" placeholder="search for a term" class="center width-Quatre"><input type="submit" value="search">
                 </div> -->
-                <ul class="right">
+                
+                <ul class="right hide-on-med-and-down">
                     <li class="dropdown-trigger nav-item" id="tree-nav" data-target="dropdown-categories">
+                        {% comment %} <a href="#!">Categories <i class="material-icons right">arrow_drop_down</i></a> {% endcomment %}
                         <a href="{% url 'tree'%}">Tree <i class="material-icons right">arrow_drop_down</i></a>
                     </li>
                     
                     <li class="dropdown-trigger nav-item" data-target="dropdown-terms">
+                        {% comment %} <a href="#!">Terms <i class="material-icons right">arrow_drop_down</i></a> {% endcomment %}
                         <a href="{% url 'cards_index'%}">Terms <i class="material-icons right">arrow_drop_down</i></a>
                     </li>
                     <li class="nav-item">
@@ -59,8 +88,30 @@
                         <a href="{% url 'design_board'%}" class="">Design</a>
                     </li>
                 </ul>
+                {% comment %} BELOW: HIDE ON LARGE -- SHOWS ONLY ON SMALLER SCREENS {% endcomment %}
+                <ul class="hide-on-large-only nav-list">
+                    <h2 class="brand-logo left" id="logoBrandMini">DIP</h2>
+                </ul>
+                <div class="center hide-on-large-only">
+                    <form id="navSearch">
+                        <div class="input-field" >
+                            <input id="search" type="search" placeholder="LOOK UP WHAT TO STUDY" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+
+                <ul class="right hide-on-large-only">
+                        <a href="#" class="right sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
+                </ul>
+
             </div>
         </nav>
+
+        
+
+
     {% block fabhover %}
         {% comment %} {%include 'fabhover.html'%} {% endcomment %}
     {% endblock fabhover %} 
@@ -68,18 +119,31 @@
     {% block fabtoolbar %}
         {% comment %} {%include 'fabtoolbar.html'%} {% endcomment %}
     {% endblock fabtoolbar %}
+
     </header>
+    
+    <ul class="sidenav" id="slide_out">
+        <li class="active">
+            <a href="{% url 'tree'%}"><i class="material-icons right">home</i>Tree</a>
+        </li>
+        <li>
+            <a href="{% url 'cards_index'%}"><i class="material-icons right">public</i>Terms</a>
+        </li>
+        <li>
+            <a href="{% url 'features_index'%}" class=""><i class="material-icons right">group</i>Features</a>
+        </li>
+        <li>
+            <a href="{% url 'design_board'%}" class=""><i class="material-icons right">email</i>Design</a>
+        </li>
+    </ul>
 
 
-
-<main class="container mainContent">
     {% block sidebar %}
         {% include 'sidebar.html' %}
     {% endblock %}
 
-
+<main id="mainOffset" class="container mainContent">
     {% block content %}
-    
     {% endblock %}
 </main>
 
@@ -90,8 +154,9 @@
 <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script>
-        $(".dropdown-trigger").dropdown({hover:false});
-
+        {% comment %} $(".dropdown-trigger").dropdown({hover:false}); {% endcomment %}
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu, {});
 
 </script>
 
