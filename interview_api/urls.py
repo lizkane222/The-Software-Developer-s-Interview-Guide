@@ -17,9 +17,9 @@ urlpatterns = [
 
     # VOCABULARY CARD INDEX
     path('cards/', views.cards_index, name="cards_index"),
-    path('cards/<int:object_id>', views.card_detail, name="card_detail"),
-    path('cards/<int:object_id>/delete/', views.card_delete, name="card_delete"),
-    path('cards/<int:object_id>/edit/', views.card_edit, name="card_edit"),
+    path('cards/<int:card_id>/', views.card_detail, name="card_detail"),
+    # path('cards/<int:card_id>/delete/', views.card_delete, name="card_delete"),
+    path('cards/<int:card_id>/edit/', views.card_edit, name="card_edit"),
 
         # AWS ADD PHOTO
     path('cards/<int:object_id>/add_photo/', views.add_photo, name="add_photo"),

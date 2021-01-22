@@ -11,43 +11,46 @@
 
 
 {% block content %}
-    {% comment %} {% block fab_edit %} {% endcomment %}
-    
+<div class="mainWrapper">
+    <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">        
 
-    <div id="timeContainer draggable">
-        <h4 class="draggable">Current Time <br/>{{timezone}}</h4>
-        <img class="draggable" src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water">
-        <p class="draggable">{{now}}</p>
-    </div>
+        <div id="timeContainer" class="draggable" draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)>
+            <h4 class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Current Time <br/>{{timezone}}</h4>
+            <img src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water" class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{now}}</p>
+        </div>
 
 
-    <!-- <hr/> -->
+        <!-- <hr/> -->
 
-    <!-- <input type="search" placeholder="search for a term"><input type="submit" value="search">
-    <div id="newCardHome">
-        <h5>Create New Vocabulary Term</h5>
-        <input type="text" placeholder="new vocabulary term">
-        <label for="categories">Category</label>
-        <select name="categories" id="categories" multiple>
-            <option value="javaScript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="django">Django</option>
-            <option value="react">React</option>
-            <option value="frontend">Front-End</option>
-            <option value="backend">Back-End</option>
-            <option value="api">API</option>
-        </select>
-        </br>
-        <input type="text" placeholder="alternative names">
-        <input type="text" placeholder="subterms">
-        </br>
-        <textarea name="define" id="" cols="30" rows="10" value="term's definition" placeholder="add the term's definition"></textarea>
-        <input type="submit" value="create term">
-    </div> -->
+        <!-- <input type="search" placeholder="search for a term"><input type="submit" value="search">
+        <div id="newCardHome">
+            <h5>Create New Vocabulary Term</h5>
+            <input type="text" placeholder="new vocabulary term">
+            <label for="categories">Category</label>
+            <select name="categories" id="categories" multiple>
+                <option value="javaScript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="django">Django</option>
+                <option value="react">React</option>
+                <option value="frontend">Front-End</option>
+                <option value="backend">Back-End</option>
+                <option value="api">API</option>
+            </select>
+            </br>
+            <input type="text" placeholder="alternative names">
+            <input type="text" placeholder="subterms">
+            </br>
+            <textarea name="define" id="" cols="30" rows="10" value="term's definition" placeholder="add the term's definition"></textarea>
+            <input type="submit" value="create term">
+        </div> -->
 
-    {% comment %} {% endblock %} {% endcomment %}
+        {% comment %} {% endblock %} {% endcomment %}
+
+    </div>    
+</div>    
     <script>
         function allowDrop(ev) {
             ev.preventDefault();

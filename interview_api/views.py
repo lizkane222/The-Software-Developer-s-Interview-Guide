@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Card, Language, Feature, Category, Code_Snippet, Image, Definition, Concept, Profile
+from .models import Card, Language, Feature, Category, Code_Snippet, Image, Resource, Text, Definition, Concept, Profile
 from .forms import Card_Form, Language_Form, Feature_Form,  Category_Form, Code_Snippet_Form, Image_Form, Text_Form, Definition_Form, Concept_Form, Profile_Form
 from time import gmtime, strftime, localtime
 import uuid
@@ -72,7 +72,7 @@ def cards_index(request):
                 # new_card.user = request.user
                 new_definition.save()
                 new_card.save()
-                return redirect('cards_index')
+                return redirect('card_detail', card_id=card_id)
 
     definitions = Definition.objects.all()
     definition_form = Definition_Form()
@@ -91,7 +91,9 @@ def cards_index(request):
 def card_detail(request, card_id):
     card = Card.objects.get(id=card_id)
     # cards_not_here = Card.objects.exclude(id_in=card.)
-    context = {'card':card}
+    context = {
+        'card': card
+    }
     return render(request, 'cards/detail.html', context)
 
 
@@ -141,9 +143,20 @@ def feature_index(request):
 
 def design_board(request):
     cards = Card.objects.all()
-    
+    features = Feature.objects.all()
+    images = Image.objects.all()
+    texts = Text.objects.all()
+    language = Language.objects.all()
+    concept = Concept.objects.all()
+
+
     context = {
         'cards': cards,
+        'features': features,
+        'images': images,
+        'texts': texts,
+        'language': language,
+        'concept': concept,
     }
     return render(request, 'design.html', context)
 

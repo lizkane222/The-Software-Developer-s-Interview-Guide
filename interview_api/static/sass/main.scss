@@ -24,6 +24,11 @@
 // ========= BASE.HTML =========//
 // =============================//
 
+.overflowScroll {
+    // overflow-y: scroll;
+    overflow: scroll;
+}
+
 #timeContainer {
     display: flex;
     // justify-content: space-evenly;
@@ -42,20 +47,26 @@ header {
     margin: -10vh 0 ;
 }
     
-main {
+.mainWrapper>* {
+    margin: 0 1%;
+}
+
+.mainContent {
     flex: 1 0 auto;
     display: flex;
-    top: 6.7vh;
+    // top: 6.7vh;
     min-width: 80vw;
     min-height: 90vh;
-    max-height: 300vh;
-    margin: 7vh 0 0 350px;
+    // max-height: 300vh;
+    margin: 7vh 0 5vh 350px;
     // left: 320px;
     overflow: scroll;
     // min-width: 90vw;
-    left: 320px;
+    // left: 320px;
+}
 
-
+.mainContent>* {
+    
 }
 
 #siteName {
@@ -150,6 +161,7 @@ footer {
     min-width: 100vw;
     align-content: center;
     align-items: center;
+    height: 5vh;
 }
 
 // =============================//
@@ -200,11 +212,6 @@ footer {
     transform: scale(1.2) 200ms;
 }
 
-
-#createdObjectRow {
-    background-color: var(--white-main);
-}
-
 #designBoard {
     display: flex;
     flex-direction: column;
@@ -212,7 +219,8 @@ footer {
     min-width: 82vw;
     max-width: 90vw;
     margin: 15vh 0 0 320px;
-    min-height: 90vh;
+    min-height: 200vh;
+    max-height: 200vh;
     // max-height: 300vh;
     // background-color: aqua;
     position: absolute;
@@ -251,7 +259,7 @@ footer {
     min-width: 80px;
     max-width: 50vw;
     min-height: 5vh;
-    max-height: 30vh;
+    max-height: 15vh;
     border: .1px dotted var(--grey-semi-transparent);
     display: flex;
     flex-grow: 1;
@@ -277,6 +285,7 @@ footer {
     flex-shrink: 1;
     flex-basis: auto;
     overflow: visible;
+    justify-content: space-between;
 }
 
 .draggable>:first-child {
@@ -287,10 +296,11 @@ footer {
     height: 100%;
     align-self: stretch;
     display: flex;
+    justify-content: space-between;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
-    overflow: visible;;
+    overflow: scroll;;
 }
 
 
@@ -342,10 +352,13 @@ footer {
 
 #createdObjectRow {
     flex: -1;
+    flex-flow: row wrap;
+    background-color: var(--white-main);
 }
 
 #designRow0 {
-    flex: 0;
+    flex: -1;
+    flex-direction: column;
 }
 
 #designRow1 {
@@ -382,6 +395,19 @@ footer {
 
 #designRow9 {
     flex: 9;
+}
+
+#designRow10 {
+    flex: 10;
+}
+#designRow11 {
+    flex: 11;
+}
+#designRow12 {
+    flex: 12;
+}
+#designRow13 {
+    flex: 13;
 }
 
 .col1 {
