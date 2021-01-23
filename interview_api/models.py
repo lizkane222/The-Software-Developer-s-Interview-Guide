@@ -59,6 +59,7 @@ class Code_Snippet(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=False) 
     url = models.CharField(max_length=200, default="", blank=True, unique=False)
+    # fileSrc = models.ImageField(null=True, blank= True, upload_to = 'images/', default='media/stockphotos/default_icon.png')
     alt_text = models.CharField(max_length=100, default="", blank=True, unique=False)
     creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
     created_at = models.DateTimeField(auto_now_add=True)

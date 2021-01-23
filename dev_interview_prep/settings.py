@@ -11,15 +11,15 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path , os
-import environ
+# import environ
 
 
-env = environ.Env(
-    DEBUG=(bool,True)
-)
+# env = environ.Env(
+#     DEBUG=(bool,True)
+# )
 
 # reading env file
-environ.Env.read_env()
+# environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,14 +42,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'interview_api',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'interview_api',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [

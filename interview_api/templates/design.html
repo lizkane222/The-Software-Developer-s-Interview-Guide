@@ -15,254 +15,313 @@
 {% comment %} <p>CODE ON HOW TO DRAG AND DROP ELEMENTS</p> {% endcomment %}
 
 <div id="designBoard" class="dragBox" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <div id="createdObjectRow overflowScroll" class="designRow">
-        <div class="col1">
+    <div id="createdObjectRow" class="designRow dragBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        <div id="designObjectsCol1" class="col1 designObjectCol dragBox overflowScroll blue-grey lighten-3" ondrop="drop(event)" ondragover="allowDrop(event)">
         {% for card in cards %}
-            <div class="draggable" id=`drag{{card.id}}` draggable="true" ondragstart="drag(event)">
-                <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><h6>{{card.term}}</h6></div>
-                <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{card.definition}}</p></div>
-                <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{card.images}}</p></div>
-                <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{card.topic}}</p></div>
-                <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{card.kind}}</p></div>
+            <div class="cardDesign draggable dragBox collapsible pink darken-4" id="card{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="draggable collapsible" id="card{{card.term}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.term}}</div>
+                <div class="draggable collapsible" id="card{{card.altname}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.altname}}</div>
+                <div class="draggable collapsible" id="card{{card.subterms}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.subterms}}</div>
+                <div class="draggable collapsible" id="card{{card.definitions}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.definitions}}</div>
+                <div class="draggable collapsible" id="card{{card.texts}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.texts}}</div>
+                <div class="draggable collapsible" id="card{{card.images}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.images}}</div>
+                <div class="draggable collapsible" id="card{{card.topic}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.topic}}</div>
+                <div class="draggable collapsible" id="card{{card.kind}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.kind}}</div>
+                <div class="draggable collapsible" id="card{{card.categories}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.categories}}</div>
+                <div class="draggable collapsible" id="card{{card.code_snippets}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.code_snippets}}</div>
             </div>
         {% endfor cards %}
-        <div>
+            <div class="dragBox draggable collapsible" id="drag0" draggable="true" ondragstart="drag(event)">
+                    <h3>LIZ</h3>
+            </div>
+        </div>
 
-        <div class="col2">
+        <div id="designObjectsCol2" class="col2 designObjectCol dragBox overflowScroll blue-grey lighten-4" ondrop="drop(event)" ondragover="allowDrop(event)">
             {% for text in texts %}
-                <div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><h6>{{text.heading}}</h6></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{text.content}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{text.updated_at}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{text.kind}}</p></div>
+                <div class="textDesign draggable dragBox collapsible teal darken-4" id="text{{text.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="draggable collapsible" id="text{{text.heading}}{{text.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{text.heading}}</div>
+                    <div class="draggable collapsible" id="text{{text.content}}{{text.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{text.content}}</div>
+                    <div class="draggable collapsible" id="text{{text.updated_at}}{{text.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{text.updated_at}}</div>
+                    <div class="draggable collapsible" id="text{{text.kind}}{{text.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{text.kind}}</div>
                 </div>
             {% endfor texts %}
+                <div class="dragBox draggable collapsible" id="drag4" draggable="true" ondragstart="drag(event)">
+                    <h3>SWARLES</h3>
+                </div>
         </div>
-        <div class="col3">
+        <div id="designObjectsCol3" class="col3 designObjectCol dragBox overflowScroll blue-grey lighten-3" ondrop="drop(event)" ondragover="allowDrop(event)">
             {% for concept in concepts %}
-                <div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><h6>{{concept.name}}</h6></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{concept.images}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{concept.resources}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{concept.code_snippets}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{concept.kind}}</p></div>
+                <div class="conceptDesign draggable dragBox collapsible deep-purple darken-4" id="concept{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="draggable collapsible" id="concept{{concept.name}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.name}}</div>
+                    <div class="draggable collapsible" id="concept{{concept.images}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.images}}</div>
+                    <div class="draggable collapsible" id="concept{{concept.resources}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.resources}}</div>
+                    <div class="draggable collapsible" id="concept{{concept.code_snippets}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.code_snippets}}</div>
+                    <div class="draggable collapsible" id="concept{{concept.kind}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.kind}}</div>
                 </div>
             {% endfor concepts %}
+                <div class="dragBox draggable collapsible" id="drag5" draggable="true" ondragstart="drag(event)">
+                    <h3>JACKSON</h3>
+                </div>
         </div>
-        <div class="col4">
+        <div id="designObjectsCol4" class="col4 designObjectCol dragBox overflowScroll blue-grey lighten-4" ondrop="drop(event)" ondragover="allowDrop(event)">
             {% for language in languages %}
-                <div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><h6>{{language.name}}</h6></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{language.stack}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{language.best_features}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><img src={{language.images}}/></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{language.texts}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{language.kind}}</p></div>
+                <div class="languageDesign draggable dragBox collapsible light-green darken-4" id="language{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="draggable collapsible" id="language{{language.name}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.name}}</div>
+                    <div class="draggable collapsible" id="language{{language.stack}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.stack}}</div>
+                    <div class="draggable collapsible" id="language{{language.best_features}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.best_features}}</div>
+                    <img src={{language.images}} class="draggable collapsible" draggable="true" id="language{{language.images}}/>{{language.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+                    <div class="draggable collapsible" id="language{{language.texts}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.texts}}</div>
+                    <div class="draggable collapsible" id="language{{language.kind}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.kind}}</div>
                 </div>
             {% endfor languages %}
+            <div class="dragBox draggable collapsible" id="drag2" draggable="true" ondragstart="drag(event)">
+                    <h3>ZACK</h3>
+            </div>
         </div>
-        <div class="col5">
-            {% for feature in features %}
-                <div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><h6>{{feature.name}}</h6></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{feature.is_complete}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{feature.updated_at}}</p></div>
-                    <div class="draggable collapsible" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"><p>{{feature.kind}}</p></div>
+        <div id="designObjectsCol5" class="col5 designObjectCol dragBox overflowScroll blue-grey lighten-3" ondrop="drop(event)" ondragover="allowDrop(event)">
+            {% for image in images %}
+                <div class="imageDesign draggable dragBox collapsible deep-orange darken-4" id="image{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="draggable collapsible" id="image{{image.name}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.name}}</div>
+                    <img src={{images.url}} class="draggable collapsible" draggable="true" id="image{{images.url}}/>{{images.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+                    <div class="draggable collapsible" id="image{{image.is_complete}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.is_complete}}</div>
+                    <div class="draggable collapsible" id="image{{image.updated_at}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.updated_at}}</div>
+                    <div class="draggable collapsible" id="image{{image.kind}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.kind}}</div>
                 </div>
-            {% endfor features %}
+            {% endfor images %}
+                <img src="https://i.imgur.com/JAgCxDc.jpg"  width="auto" height="auto" class="dragBox draggable collapsible" id="drag6" draggable="true" ondragstart="drag(event)">
         </div>
 
-        <div class="col6">
-            <div class="dragBox draggable collapsible" id="drag0" draggable="true" ondragstart="drag(event)">
-                <h3>LIZ</h3>
-            </div>
-            <div class="dragBox draggable collapsible" id="drag2" draggable="true" ondragstart="drag(event)">
-                <h3>ZACK</h3>
-            </div>
-            <div class="dragBox draggable collapsible" id="drag3" draggable="true" ondragstart="drag(event)">
-                <h3>JOSH</h3>
-            </div>
-            <div class="dragBox draggable collapsible" id="drag4" draggable="true" ondragstart="drag(event)">
-                <h3>SWARLES</h3>
-            </div>
-            <div class="dragBox draggable collapsible" id="drag5" draggable="true" ondragstart="drag(event)">
-                <h3>JACKSON</h3>
-            </div>
-                <img src="https://i.imgur.com/JAgCxDc.jpg"  width="auto" height="auto" class="dragBox draggable collapsible" id="drag6" draggable="true" ondragstart="drag(event)">
-            
-            <div class="dragBox draggable collapsible" id="drag7" draggable="true" ondragstart="drag(event)">
-                <p >Swarles and Jackson are best friends and nothing can keep them apart except their love for food and grouchy moods.</p>
-            </div>
-        </div>
+            {% comment %} <div class="col6">
+                
+                <div class="dragBox draggable collapsible" id="drag3" draggable="true" ondragstart="drag(event)">
+                    <h3>JOSH</h3>
+                </div>
+                
+                
+                
+                
+                <div class="dragBox draggable collapsible" id="drag7" draggable="true" ondragstart="drag(event)">
+                    <p >Swarles and Jackson are best friends and nothing can keep them apart except their love for food and grouchy moods.</p>
+                </div>
+            </div> {% endcomment %}
     </div>
 
     <div id="designRow0" class="designRow">
-        <div id="div1" class="dragBox col1 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div2" class="dragBox col2 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div3" class="dragBox col3 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div4" class="dragBox col4 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div5" class="dragBox col5 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div6" class="dragBox col6 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div7" class="dragBox col7 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div8" class="dragBox col8 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div9" class="dragBox col9 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div10" class="dragBox col10 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div1" class="oddBox dragBox col1 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div2" class="evenBox dragBox col2 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div3" class="oddBox dragBox col3 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div4" class="evenBox dragBox col4 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div5" class="oddBox dragBox col5 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div6" class="evenBox dragBox col6 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div7" class="oddBox dragBox col7 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div8" class="evenBox dragBox col8 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div9" class="oddBox dragBox col9 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div10" class="evenBox dragBox col10 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow1" class="designRow">
-        <div id="div11" class="dragBox col1 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div12" class="dragBox col2 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div13" class="dragBox col3 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div14" class="dragBox col4 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div15" class="dragBox col5 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div16" class="dragBox col6 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div17" class="dragBox col7 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div18" class="dragBox col8 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div19" class="dragBox col9 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div20" class="dragBox col10 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div11" class="oddBox dragBox col1 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div12" class="evenBox dragBox col2 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div13" class="oddBox dragBox col3 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div14" class="evenBox dragBox col4 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div15" class="oddBox dragBox col5 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div16" class="evenBox dragBox col6 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div17" class="oddBox dragBox col7 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div18" class="evenBox dragBox col8 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div19" class="oddBox dragBox col9 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div20" class="evenBox dragBox col10 draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow2" class="designRow">
-        <div id="div21" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div22" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div23" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div24" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div25" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div26" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div27" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div28" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div29" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div30" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div21" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div22" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div23" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div24" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div25" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div26" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div27" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div28" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div29" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div30" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow3" class="designRow">
-        <div id="div31" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div32" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div33" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div34" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div35" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div36" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div37" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div38" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div39" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div40" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div31" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div32" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div33" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div34" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div35" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div36" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div37" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div38" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div39" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div40" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow4" class="designRow">
-        <div id="div41" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div42" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div43" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div44" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div45" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div46" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div47" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div48" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div49" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div50" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div41" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div42" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div43" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div44" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div45" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div46" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div47" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div48" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div49" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div50" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow5" class="designRow">
-        <div id="div51" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div52" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div53" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div54" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div55" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div56" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div57" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div58" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div59" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div60" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div51" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div52" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div53" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div54" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div55" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div56" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div57" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div58" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div59" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div60" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow6" class="designRow">
-        <div id="div61" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div62" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div63" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div64" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div65" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div66" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div67" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div68" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div69" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div70" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div61" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div62" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div63" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div64" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div65" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div66" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div67" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div68" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div69" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div70" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow7" class="designRow">
-        <div id="div71" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div72" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div73" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div74" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div75" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div76" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div77" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div78" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div79" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div80" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div71" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div72" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div73" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div74" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div75" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div76" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div77" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div78" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div79" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div80" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow8" class="designRow">
-        <div id="div81" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div82" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div83" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div84" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div85" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div86" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div87" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div88" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div89" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div90" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div81" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div82" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div83" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div84" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div85" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div86" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div87" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div88" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div89" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div90" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow9" class="designRow">
-        <div id="div91" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div92" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div93" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div94" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div95" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div96" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div97" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div98" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div99" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div100" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div91" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div92" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div93" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div94" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div95" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div96" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div97" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div98" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div99" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div100" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow10" class="designRow">
-        <div id="div101" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div102" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div103" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div104" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div105" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div106" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div107" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div108" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div109" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div110" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div101" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div102" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div103" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div104" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div105" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div106" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div107" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div108" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div109" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div110" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow11" class="designRow">
-        <div id="div111" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div112" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div113" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div114" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div115" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div116" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div117" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div118" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div119" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div120" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div111" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div112" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div113" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div114" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div115" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div116" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div117" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div118" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div119" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div120" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow12" class="designRow">
-        <div id="div121" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div122" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div123" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div124" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div125" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div126" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div127" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div128" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div129" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div130" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div121" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div122" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div123" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div124" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div125" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div126" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div127" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div128" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div129" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div130" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
     <div id="designRow13" class="designRow">
-        <div id="div131" class="dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div132" class="dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div133" class="dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div134" class="dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div135" class="dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div136" class="dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div137" class="dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div138" class="dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div139" class="dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div id="div140" class="dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div131" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div132" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div133" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div134" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div135" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div136" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div137" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div138" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div139" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div140" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+    </div>
+    <div id="designRow14" class="designRow">
+        <div id="div141" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div142" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div143" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div144" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div145" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div146" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div147" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div148" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div149" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div150" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+    </div>
+    <div id="designRow15" class="designRow">
+        <div id="div151" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div152" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div153" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div154" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div155" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div156" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div157" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div158" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div159" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div160" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+    </div>
+    <div id="designRow16" class="designRow">
+        <div id="div161" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div162" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div163" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div164" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div165" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div166" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div167" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div168" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div169" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div170" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+    </div>
+    <div id="designRow17" class="designRow">
+        <div id="div171" class="oddBox dragBox col1draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div172" class="evenBox dragBox col2draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div173" class="oddBox dragBox col3draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div174" class="evenBox dragBox col4draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div175" class="oddBox dragBox col5draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div176" class="evenBox dragBox col6draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div177" class="oddBox dragBox col7draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div178" class="evenBox dragBox col8draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div179" class="oddBox dragBox col9draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
+        <div id="div180" class="evenBox dragBox col10draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" contenteditable="true"></div>
     </div>
 </div>
     </div>

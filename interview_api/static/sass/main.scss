@@ -5,17 +5,39 @@
 :root {
     // colors
     --white-main: rgba(245,245,245,1);
-    --white-semi-transparent: rgba(245,245,245,.5);
-    --grey-main: rgba(40,40,40,.1);
-    --grey-semi-transparent: rgba(40,40,40,.1);;
-
+    // --white-semi-transparent: rgba(245,245,245,.5);
+    --white-semi-transparent: rgba(236, 239, 241, .5);
+    // --grey-main: rgba(40,40,40,.1);
+    --grey-main: rgba(236, 239, 241, 1);
+    --grey-semi-even: rgba(236, 239, 241, .1);
+    --grey-semi-odd: rgba(236, 239, 241, .2);
+    --grey-semi-transparent: rgba(40,40,40,.1);
+    // blue-grey lighten-5
+    --blueGrey-ltn-5: #eceff1;
+    // blue-grey lighten-4
+    --blueGrey-ltn-4: #cfd8dc;
+    // blue-grey lighten-3
+    --blueGrey-ltn-3: #b0bec5;
+    // blue-grey lighten-2
+    --blueGrey-ltn-2: #90a4ae;
+    // blue-grey lighten-1
+    --blueGrey-ltn-1: #78909c;
+    // blue-grey
+    --blueGrey: #607d8b;
+    // blue-grey darken-1
+    --blueGrey-dkn-1: #546e7a;
+    // blue-grey darken-2
+    --blueGrey-dkn-2: #455a64;
+    // blue-grey darken-3
+    --blueGrey-dkn-3: #37474f;
+    // blue-grey darken-4
+    --blueGrey-dkn-4: #263238;
 
     // fonts
 
 
 
 }
-
 
 
 
@@ -58,7 +80,8 @@ header {
     min-width: 80vw;
     min-height: 90vh;
     // max-height: 300vh;
-    margin: 7vh 0 5vh 350px;
+    // margin: 7vh 0 5vh 350px;
+    margin: 7vh 0 5vh 5vw;
     // left: 320px;
     overflow: scroll;
     // min-width: 90vw;
@@ -99,15 +122,21 @@ header {
     // left: 15vw;
 }
 
+.nav-item>a {
+    color: var(--blueGrey-dkn-4);
+}
+
 #logoName {
     font-size: .5em;
     margin-left: 1%;
+    color: var(--blueGrey-dkn-4);
 }
 
 #logoBrandMini {
     padding: 0;
     font-size: 2em;
     margin-top: 1.5vh;
+    color: var(--blueGrey-dkn-4);
 }
 
 // #searchBar {
@@ -164,145 +193,6 @@ footer {
     height: 5vh;
 }
 
-// =============================//
-// ========= BASE.HTML =========//
-// ============ END ============//
-
-//......................................
-
-// =========== START ===========//
-// ========= DESIGN.HTML =========//
-// =============================//
-
-// fab-edit button animate to toolbar
-.toolbar {
-    top: 8vh;
-    border: 5px 5px solid teal;
-    position: fixed;
-    max-height: 7vh;
-    
-    // min-height: 5vh;
-    // padding: 1vh 0;
-}
-
-.fixed-action-btn.active ul {
-    visibility: visible;
-    border: 5px 5px solid teal;
-    left: 300px;
-}
-
-.fixed-action-btn.active ul>li {
-    margin: 0 5.5vw;
-    height: 95%;
-    align-self: center;
-    border-radius: 50%;
-}
-
-#toolbarList {
-    border: 5px 5px solid teal;
-    // margin: 0 5vw;
-}
-
-.editIcons {
-    align-self: center;
-    // transition: ;
-}
-
-.editIcons:hover {
-    transform: scale(1.2) 200ms;
-}
-
-#designBoard {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    min-width: 82vw;
-    max-width: 90vw;
-    margin: 15vh 0 0 320px;
-    min-height: 200vh;
-    max-height: 200vh;
-    // max-height: 300vh;
-    // background-color: aqua;
-    position: absolute;
-    right: 1vw;
-    overflow: scroll;
-}
-
-// #designBoard>div {
-//     min-width: 150px;
-//     max-width: 50vw;
-//     min-height: 70px;
-//     max-height: 10%;
-//     min-width: 100%;
-//     max-width: 100%;
-//     min-height: 8%;
-//     max-height: 8%;
-//     margin: .5%;
-//     border: 1px solid rgba(40,40,40,.5);
-//     background-color: rgb(50,100,175);
-// }
-
-#designBoard>.designRow {
-    display: flex;
-    // flex-wrap: nowrap;
-    // flex-direction: column;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 5vh;
-    max-height: 30vh;
-    // margin: .5%;
-    // border: 1px solid rgba(40,40,40,.1);
-    // background-color: rgb(50,100,175);
-}
-
-.designRow>.dragBox {
-    min-width: 80px;
-    max-width: 50vw;
-    min-height: 5vh;
-    max-height: 15vh;
-    border: .1px dotted var(--grey-semi-transparent);
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    flex-flow: column wrap;
-    // margin: 0 .25%;
-    // padding: .25%;
-    // background-color: rgb(50,100,175);
-}
-
-// .dragBox {
-//     border: 1px solid rgb(55, 49, 143);
-//     background-color: blueviolet;
-//     padding: .25%;
-// }
-
-
-.draggable {
-    max-width: 25vw;
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    overflow: visible;
-    justify-content: space-between;
-}
-
-.draggable>:first-child {
-    margin: 0 0;
-    padding: 10px 10px;
-    background-color: var(--white-semi-transparent);
-    width: 100%;
-    height: 100%;
-    align-self: stretch;
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    overflow: scroll;;
-}
-
 
 // SIDEBAR
 #slide-out {
@@ -341,6 +231,8 @@ footer {
     flex-basis: auto;
     border: 1px solid var(--grey-semi-transparent);
     padding: 5px;
+    background-color: var(--white-main);
+    opacity: 1;
 }
 
 #slide_sidebar>h4 {
@@ -350,64 +242,339 @@ footer {
     text-align: center;
 }
 
-#createdObjectRow {
-    flex: -1;
-    flex-flow: row wrap;
-    background-color: var(--white-main);
+#sidebarSubheader {
+    color: var(--blueGrey-dkn-3);
 }
 
-#designRow0 {
-    flex: -1;
+
+
+
+// =============================//
+// ========= BASE.HTML =========//
+// ============ END ============//
+
+//......................................
+
+// =========== START ===========//
+// ========= DESIGN.HTML =========//
+// =============================//
+
+//START fab-edit button animate to toolbar
+.toolbar {
+    top: 8vh;
+    // border: 5px 5px solid var(--blueGrey-ltn-4);
+    position: fixed;
+    max-height: 7vh;
+    
+    // min-height: 5vh;
+    // padding: 1vh 0;
+}
+
+.fixed-action-btn.active ul {
+    visibility: visible;
+    border: 5px 5px solid var(--blueGrey-ltn-5);
+    left: 300px;
+}
+
+.fixed-action-btn.active ul>li {
+    margin: 0 5.5vw;
+    height: 95%;
+    align-self: center;
+    border-radius: 50%;
+}
+
+.fixed-action-btn.active ul>li:hover {
+    transform: scale(1.2) 200ms;
+}
+
+#toolbarList {
+    border: 5px 5px solid red;
+    // margin: 0 5vw;
+}
+
+.editIcons {
+    align-self: center;
+    // transition: ;
+}
+
+.editIcons:hover {
+    transform: scale(1.2) 200ms;
+}
+//END  fab-edit button animate to toolbar
+
+//START design board classes & ids
+#designBoard {
+    display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    min-width: 88%;
+    max-width: 88%;
+    // margin: 15vh 0 5vh 320px;
+    // margin: 1vh 1vw 5vh 5vw;
+    // margin: 0 auto;
+    min-height: 200vh;
+    max-height: 500vh;
+    position: absolute;
+    right: 1vw;
+    overflow: visible;
+}
+
+#designBoard>.designRow {
+    display: flex;
+    // flex-wrap: nowrap;
+    // flex-direction: column;
+    min-width: 100%;
+    max-width: 300%;
+    min-height: 5vh;
+    max-height: 30vh;
+    flex-grow: auto;
+    flex-shrink: auto;
+    flex-basis: auto;
+
+    // resize: both;
+}
+
+.designRow>.dragBox {
+    min-width: 80px;
+    max-width: 50vw;
+    min-height: 5vh;
+    max-height: 15vh;
+    // border: .1px dotted var(--grey-semi-transparent);
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    flex-flow: column wrap;
+    resize: both;
+    cursor: grab;
+}
+
+.draggable {
+    max-width: 25vw;
+    display: flex;
+    flex-grow: auto;
+    flex-shrink: auto;
+    flex-basis: auto;
+    overflow: visible;
+    justify-content: space-between;
+    resize: both;
+
+}
+
+.draggable>* {
+    margin: 0 0;
+    padding: 10px 10px;
+    background-color: var(--white-semi-transparent);
+    width: 95%;
+    height: 92%;
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    overflow: auto;;
+    resize: both;
+    cursor: grab;
+}
+
+#createdObjectRow {
+    flex: -1;
+    background-color: var(--white-main);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: scroll;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 15vh;
+    max-height: 50vh;
+    resize: both;
+    margin-bottom: 1%;
+}
+
+#createdObjectRow>.designObjectCol {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 50%;
+    max-height: 100%;
+
+    border: none;
+}
+
+.designObjectCol>* {
+    margin: 1% 1%;
+    // padding:  4% 4%;
+    resize: both;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#designObjectsCol1 {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5% 4%;
+}
+#designObjectsCol2 {
+    flex: 2;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5% 2%;
+}
+#designObjectsCol3 {
+    flex: 3;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5% 1%;
+}
+#designObjectsCol4 {
+    flex: 4;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5% 1%;
+}
+#designObjectsCol5 {
+    flex: 5;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5% 1%;
+}
+
+// CLASSES FOR SPECIFIC COLUMNS
+.cardDesign {
+    resize: both;
+    padding: 4%;
+}
+.textDesign {
+    resize: both;
+    padding: 4%;
+}
+.conceptDesign {
+    resize: both;
+    padding: 4%;
+}
+.languageDesign {
+    resize: both;
+    padding: 4%;
+}
+.imageDesign {
+    resize: both;
+    padding: 4%;
+}
+
+// empty design boxes
+
+.textAreaOnClick {
+    background: center center no-repeat;
+    border: none;
+    outline: none;
+    overflow: auto;
+}
+
+
+.evenBox {
+    background-color: var(--grey-semi-even);
+    border: .1px dotted var(--grey-semi-transparent);
+}
+
+.oddBox {
+    background-color: var(--grey-semi-odd);
+    border: .1px dotted var(--grey-semi-transparent);
+}
+
+
+#designRow0 {
+    flex: 0;
+    margin: 0 auto;
 }
 
 #designRow1 {
     flex: 1;
+    margin: 0 auto;
 }
 
 #designRow2 {
     flex: 2;
+    margin: 0 auto;
 }
 
 #designRow3 {
     flex: 3;
+    margin: 0 auto;
 }
 
 #designRow4 {
     flex: 4;
+    margin: 0 auto;
 }
 
 #designRow5 {
     flex: 5;
+    margin: 0 auto;
 }
 
 #designRow6 {
     flex: 6;
+    margin: 0 auto;
 }
 
 #designRow7 {
     flex: 7;
+    margin: 0 auto;
 }
 
 #designRow8 {
     flex: 8;
+    margin: 0 auto;
 }
 
 #designRow9 {
     flex: 9;
+    margin: 0 auto;
 }
 
 #designRow10 {
     flex: 10;
+    margin: 0 auto;
 }
+
 #designRow11 {
     flex: 11;
+    margin: 0 auto;
 }
+
 #designRow12 {
     flex: 12;
+    margin: 0 auto;
 }
+
 #designRow13 {
     flex: 13;
+    margin: 0 auto;
+}
+
+#designRow14 {
+    flex: 14;
+    margin: 0 auto;
+}
+
+#designRow15 {
+    flex: 15;
+    margin: 0 auto;
+}
+
+#designRow16 {
+    flex: 16;
+    margin: 0 auto;
+}
+
+#designRow17 {
+    flex: 17;
+    margin: 0 auto;
 }
 
 .col1 {
@@ -449,6 +616,8 @@ footer {
 .col10 {
     flex: 10;    
 }
+
+
 
 
 // #div1 {
@@ -538,6 +707,21 @@ footer {
 // =========== START ===========//
 // ========= CARD_INDEX.HTML =========//
 // =============================//
+
+#cardForm {
+    margin: 0 10%;
+    
+
+    // flex: 1;
+}
+
+#cardIndex {
+    flex-flow: row wrap;
+}
+
+#cardIndex>.card {
+    max-height: 40vh;
+}
 
 // =============================//
 // ========= CARD_INDEX.HTML =========//

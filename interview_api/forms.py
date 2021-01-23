@@ -2,11 +2,11 @@ from django.forms import ModelForm
 from .models import Card, Language, Feature, Category, Code_Snippet, Image, Text, Concept, Profile, Resource, Definition
 from django import forms
 # from django.contrib.postgres.forms import SimpleArrayField
-from django.contrib.postgres.fields import ArrayField
+# from django.contrib.postgres.fields import ArrayField
 
 
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET ='devguideassets'
+# S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+# BUCKET ='devguideassets'
 
 
 class Feature_Form(ModelForm):
@@ -43,7 +43,8 @@ class Code_Snippet_Form(ModelForm):
 
 class Image_Form(ModelForm):
     name = forms.CharField()
-    url = forms.CharField()
+    # url = forms.CharField()
+    url = forms.ImageField(required=False, widget=forms.FileInput, label="Upload Image")
     alt_text = forms.CharField()
     creator = forms.CharField()
 
@@ -69,19 +70,22 @@ class Card_Form(ModelForm):
     altname = forms.CharField()
     subterms = forms.CharField()
     topic = forms.CharField()
-    img = forms.CharField()
+    # img = forms.CharField()
+    img = forms.ImageField(required=False, widget=forms.FileInput, label="Upload Image")
     creator = forms.CharField()
 
-    code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all())
-    categories = forms.ModelChoiceField(queryset=Category.objects.all())
-    images = forms.ModelChoiceField(queryset=Image.objects.all())
-    resources = forms.ModelChoiceField(queryset=Resource.objects.all())
-    concepts = forms.ModelChoiceField(queryset=Concept.objects.all())
-    texts = forms.ModelChoiceField(queryset=Text.objects.all())
+    # code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all(), to_field_name="content")
+    # categories = forms.ModelChoiceField(queryset=Category.objects.all(), to_field_name="name")
+    # images = forms.ModelChoiceField(queryset=Image.objects.all(), to_field_name="name")
+    # resources = forms.ModelChoiceField(queryset=Resource.objects.all(), to_field_name="name")
+    # concepts = forms.ModelChoiceField(queryset=Concept.objects.all(), to_field_name="name")
+    # texts = forms.ModelChoiceField(queryset=Text.objects.all(), to_field_name="heading")
+    definition = forms.CharField()
     
     class Meta:
         model = Card
-        fields = ['term', "altname", "subterms", "topic", "img", "creator", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
+        # fields = ['term', "altname", "subterms", "topic", "img", "creator", "code_snippets", "categories", "images", "resources", "concepts", "texts"]
+        fields = ['term', "altname", "subterms", "topic", "img", "creator", "definition"]
 
 
 class Definition_Form(ModelForm):

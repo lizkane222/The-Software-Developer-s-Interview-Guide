@@ -8,21 +8,24 @@
 <div class="mainWrapper">
     <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">        
 
-        <div class="">
-            <div class="draggable dragBox" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <form action="{% url 'cards_index' %}" method="POST">
+        <div id="cardForm">
+            <div>
+                <form action="{% url 'cards_index'%}" method="POST">
                     <h5>Create New Vocabulary Term</h5>
                     {% csrf_token %}
-                    {{card_form.as_p}}
-                    {{definition_form.as_p}}
-                    <input type="submit" class="btn" value="Add term">
+                    <div>
+                        {{card_form.as_p}}
+                        {{definition_form.as_p}}
+                        <input id="AddTermBtn" type="submit" class="btn" value="Add term"/>
+                        {% comment %} <input type="submit" class="btn" value="Add definition"/> {% endcomment %}
+                    </div>
                 </form>
             </div>
-        </div>
+        </div> 
         
-        <div class="draggable dragBox" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="cardIndex" class="draggable collapsible dragBox" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
             {% for card in cards %}
-            <div class="card sticky-action draggable dragBox">
+            <div class="card sticky-action draggable dragBox" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src={{card.images}}>
                 </div>
@@ -59,3 +62,14 @@
     
     {% comment %} {% endblock %} {% endcomment %}
 {% endblock %}
+
+<script>
+
+
+    {% comment %} $(#AddTermBtn).click(function(){
+        let url="http://localhost:8000/cards/" + Math.random();
+        setTimeout(function(){
+            $("#cardIndex").load(url+" #cardIndex>*","");
+        }, 1000);
+    }) {% endcomment %}
+</script>

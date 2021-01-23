@@ -5,9 +5,21 @@
 
 :root {
   --white-main: rgba(245,245,245,1);
-  --white-semi-transparent: rgba(245,245,245,.5);
-  --grey-main: rgba(40,40,40,.1);
+  --white-semi-transparent: rgba(236, 239, 241, .5);
+  --grey-main: rgba(236, 239, 241, 1);
+  --grey-semi-even: rgba(236, 239, 241, .1);
+  --grey-semi-odd: rgba(236, 239, 241, .2);
   --grey-semi-transparent: rgba(40,40,40,.1);
+  --blueGrey-ltn-5: #eceff1;
+  --blueGrey-ltn-4: #cfd8dc;
+  --blueGrey-ltn-3: #b0bec5;
+  --blueGrey-ltn-2: #90a4ae;
+  --blueGrey-ltn-1: #78909c;
+  --blueGrey: #607d8b;
+  --blueGrey-dkn-1: #546e7a;
+  --blueGrey-dkn-2: #455a64;
+  --blueGrey-dkn-3: #37474f;
+  --blueGrey-dkn-4: #263238;
 }
 
 .overflowScroll {
@@ -39,7 +51,7 @@
   display: flex;
   min-width: 80vw;
   min-height: 90vh;
-  margin: 7vh 0 5vh 350px;
+  margin: 7vh 0 5vh 5vw;
   overflow: scroll;
 }
 
@@ -78,15 +90,21 @@
           align-items: flex-start;
 }
 
+.nav-item > a {
+  color: var(--blueGrey-dkn-4);
+}
+
 #logoName {
   font-size: .5em;
   margin-left: 1%;
+  color: var(--blueGrey-dkn-4);
 }
 
 #logoBrandMini {
   padding: 0;
   font-size: 2em;
   margin-top: 1.5vh;
+  color: var(--blueGrey-dkn-4);
 }
 
 #navSearch {
@@ -130,137 +148,6 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   height: 5vh;
-}
-
-.toolbar {
-  top: 8vh;
-  border: 5px 5px solid teal;
-  position: fixed;
-  max-height: 7vh;
-}
-
-.fixed-action-btn.active ul {
-  visibility: visible;
-  border: 5px 5px solid teal;
-  left: 300px;
-}
-
-.fixed-action-btn.active ul > li {
-  margin: 0 5.5vw;
-  height: 95%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  border-radius: 50%;
-}
-
-#toolbarList {
-  border: 5px 5px solid teal;
-}
-
-.editIcons {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.editIcons:hover {
-  -webkit-transform: scale(1.2) 200ms;
-          transform: scale(1.2) 200ms;
-}
-
-#designBoard {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  min-width: 82vw;
-  max-width: 90vw;
-  margin: 15vh 0 0 320px;
-  min-height: 200vh;
-  max-height: 200vh;
-  position: absolute;
-  right: 1vw;
-  overflow: scroll;
-}
-
-#designBoard > .designRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 5vh;
-  max-height: 30vh;
-}
-
-.designRow > .dragBox {
-  min-width: 80px;
-  max-width: 50vw;
-  min-height: 5vh;
-  max-height: 15vh;
-  border: 0.1px dotted var(--grey-semi-transparent);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-}
-
-.draggable {
-  max-width: 25vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  overflow: visible;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.draggable > :first-child {
-  margin: 0 0;
-  padding: 10px 10px;
-  background-color: var(--white-semi-transparent);
-  width: 100%;
-  height: 100%;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  overflow: scroll;
 }
 
 #slide-out {
@@ -319,6 +206,8 @@ footer {
       flex-basis: auto;
   border: 1px solid var(--grey-semi-transparent);
   padding: 5px;
+  background-color: var(--white-main);
+  opacity: 1;
 }
 
 #slide_sidebar > h4 {
@@ -327,103 +216,438 @@ footer {
   text-align: center;
 }
 
-#createdObjectRow {
-  -webkit-box-flex: -1;
-      -ms-flex: -1;
-          flex: -1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  background-color: var(--white-main);
+#sidebarSubheader {
+  color: var(--blueGrey-dkn-3);
 }
 
-#designRow0 {
-  -webkit-box-flex: -1;
-      -ms-flex: -1;
-          flex: -1;
+.toolbar {
+  top: 8vh;
+  position: fixed;
+  max-height: 7vh;
+}
+
+.fixed-action-btn.active ul {
+  visibility: visible;
+  border: 5px 5px solid var(--blueGrey-ltn-5);
+  left: 300px;
+}
+
+.fixed-action-btn.active ul > li {
+  margin: 0 5.5vw;
+  height: 95%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border-radius: 50%;
+}
+
+.fixed-action-btn.active ul > li:hover {
+  -webkit-transform: scale(1.2) 200ms;
+          transform: scale(1.2) 200ms;
+}
+
+#toolbarList {
+  border: 5px 5px solid red;
+}
+
+.editIcons {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.editIcons:hover {
+  -webkit-transform: scale(1.2) 200ms;
+          transform: scale(1.2) 200ms;
+}
+
+#designBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  min-width: 88%;
+  max-width: 88%;
+  min-height: 200vh;
+  max-height: 500vh;
+  position: absolute;
+  right: 1vw;
+  overflow: visible;
+}
+
+#designBoard > .designRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 100%;
+  max-width: 300%;
+  min-height: 5vh;
+  max-height: 30vh;
+  -webkit-box-flex: auto;
+      -ms-flex-positive: auto;
+          flex-grow: auto;
+  -ms-flex-negative: auto;
+      flex-shrink: auto;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+}
+
+.designRow > .dragBox {
+  min-width: 80px;
+  max-width: 50vw;
+  min-height: 5vh;
+  max-height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  resize: both;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.draggable {
+  max-width: 25vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: auto;
+      -ms-flex-positive: auto;
+          flex-grow: auto;
+  -ms-flex-negative: auto;
+      flex-shrink: auto;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  overflow: visible;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  resize: both;
+}
+
+.draggable > * {
+  margin: 0 0;
+  padding: 10px 10px;
+  background-color: var(--white-semi-transparent);
+  width: 95%;
+  height: 92%;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  overflow: auto;
+  resize: both;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+#createdObjectRow {
+  -webkit-box-flex: -1;
+      -ms-flex: -1;
+          flex: -1;
+  background-color: var(--white-main);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: scroll;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15vh;
+  max-height: 50vh;
+  resize: both;
+  margin-bottom: 1%;
+}
+
+#createdObjectRow > .designObjectCol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  min-width: 20%;
+  max-width: 20%;
+  min-height: 50%;
+  max-height: 100%;
+  border: none;
+}
+
+.designObjectCol > * {
+  margin: 1% 1%;
+  resize: both;
+  width: 100%;
+  height: 100%;
+}
+
+#designObjectsCol1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: .5% 4%;
+}
+
+#designObjectsCol2 {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: .5% 2%;
+}
+
+#designObjectsCol3 {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: .5% 1%;
+}
+
+#designObjectsCol4 {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: .5% 1%;
+}
+
+#designObjectsCol5 {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: .5% 1%;
+}
+
+.cardDesign {
+  resize: both;
+  padding: 4%;
+}
+
+.textDesign {
+  resize: both;
+  padding: 4%;
+}
+
+.conceptDesign {
+  resize: both;
+  padding: 4%;
+}
+
+.languageDesign {
+  resize: both;
+  padding: 4%;
+}
+
+.imageDesign {
+  resize: both;
+  padding: 4%;
+}
+
+.textAreaOnClick {
+  background: center center no-repeat;
+  border: none;
+  outline: none;
+  overflow: auto;
+}
+
+.evenBox {
+  background-color: var(--grey-semi-even);
+  border: 0.1px dotted var(--grey-semi-transparent);
+}
+
+.oddBox {
+  background-color: var(--grey-semi-odd);
+  border: 0.1px dotted var(--grey-semi-transparent);
+}
+
+#designRow0 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  margin: 0 auto;
 }
 
 #designRow1 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin: 0 auto;
 }
 
 #designRow2 {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  margin: 0 auto;
 }
 
 #designRow3 {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+  margin: 0 auto;
 }
 
 #designRow4 {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
+  margin: 0 auto;
 }
 
 #designRow5 {
   -webkit-box-flex: 5;
       -ms-flex: 5;
           flex: 5;
+  margin: 0 auto;
 }
 
 #designRow6 {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6;
+  margin: 0 auto;
 }
 
 #designRow7 {
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
+  margin: 0 auto;
 }
 
 #designRow8 {
   -webkit-box-flex: 8;
       -ms-flex: 8;
           flex: 8;
+  margin: 0 auto;
 }
 
 #designRow9 {
   -webkit-box-flex: 9;
       -ms-flex: 9;
           flex: 9;
+  margin: 0 auto;
 }
 
 #designRow10 {
   -webkit-box-flex: 10;
       -ms-flex: 10;
           flex: 10;
+  margin: 0 auto;
 }
 
 #designRow11 {
   -webkit-box-flex: 11;
       -ms-flex: 11;
           flex: 11;
+  margin: 0 auto;
 }
 
 #designRow12 {
   -webkit-box-flex: 12;
       -ms-flex: 12;
           flex: 12;
+  margin: 0 auto;
 }
 
 #designRow13 {
   -webkit-box-flex: 13;
       -ms-flex: 13;
           flex: 13;
+  margin: 0 auto;
+}
+
+#designRow14 {
+  -webkit-box-flex: 14;
+      -ms-flex: 14;
+          flex: 14;
+  margin: 0 auto;
+}
+
+#designRow15 {
+  -webkit-box-flex: 15;
+      -ms-flex: 15;
+          flex: 15;
+  margin: 0 auto;
+}
+
+#designRow16 {
+  -webkit-box-flex: 16;
+      -ms-flex: 16;
+          flex: 16;
+  margin: 0 auto;
+}
+
+#designRow17 {
+  -webkit-box-flex: 17;
+      -ms-flex: 17;
+          flex: 17;
+  margin: 0 auto;
 }
 
 .col1 {
@@ -525,5 +749,20 @@ footer {
 
 .creatorPic {
   border-radius: 60%;
+}
+
+#cardForm {
+  margin: 0 10%;
+}
+
+#cardIndex {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+#cardIndex > .card {
+  max-height: 40vh;
 }
 /*# sourceMappingURL=main.css.map */

@@ -43,6 +43,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+
 # CATEGORIES & TOPICS
 def tree(request):
     languages = Language.objects.all()
@@ -72,7 +73,8 @@ def cards_index(request):
                 # new_card.user = request.user
                 new_definition.save()
                 new_card.save()
-                return redirect('card_detail', card_id=card_id)
+                return redirect('cards_index',)
+                # return redirect('card_detail', card_id=card_id)
 
     definitions = Definition.objects.all()
     definition_form = Definition_Form()
@@ -89,10 +91,14 @@ def cards_index(request):
 
 # CARD DETAIL
 def card_detail(request, card_id):
+    if request.method =="GET":
+        print(request.GET)
     card = Card.objects.get(id=card_id)
+    # definitions = Definition.objects.all()
     # cards_not_here = Card.objects.exclude(id_in=card.)
     context = {
-        'card': card
+        'card': card,
+        # 'definitions': definitions
     }
     return render(request, 'cards/detail.html', context)
 
@@ -115,9 +121,9 @@ def card_edit(request, card_id):
     return render(request, 'cards/edit.html', context)
 
 # CARD DELETE
-def card_delete(request, card_id):
-    Card.objects.get(id=cat_id).delete()
-    return redirect("cards_index")
+# def card_delete(request, card_id):
+#     Card.objects.get(id=cat_id).delete()
+#     return redirect("cards_index")
 
 
 
@@ -146,8 +152,8 @@ def design_board(request):
     features = Feature.objects.all()
     images = Image.objects.all()
     texts = Text.objects.all()
-    language = Language.objects.all()
-    concept = Concept.objects.all()
+    languages = Language.objects.all()
+    concepts = Concept.objects.all()
 
 
     context = {
@@ -155,8 +161,8 @@ def design_board(request):
         'features': features,
         'images': images,
         'texts': texts,
-        'language': language,
-        'concept': concept,
+        'languages': languages,
+        'concepts': concepts,
     }
     return render(request, 'design.html', context)
 

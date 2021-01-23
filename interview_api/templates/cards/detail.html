@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
+
 {% block fabhover%}
+    {%include 'fabhover.html'%}
 {% endblock %}
 
 {% block content %}
 
-
 <div class="mainWrapper">
   <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">        
+
     <div class="">
       <h1>CARD DETAILS</h1>
-      {% for card in cards %}
+      {% comment %} {% for card in card %} {% endcomment %}
         <div class="card sticky-action">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/office.jpg">
+                <img class="activator" src="{{card.img}}">
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{card.term}}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">{{definition.card}}</a></p>
+                {% comment %} <p><a href="#">{{definition.card}}</a></p> {% endcomment %}
             </div>
             <div class="card-action">
                 <a href="#">{{card.category}}</a>
@@ -30,14 +32,15 @@
                 <p>{{card.creator}}</p>
             </div>
         </div>
-      {% endfor %}
+      {% comment %} {% endfor %} {% endcomment %}
           <!-- card actions -->
           <div class="card-action">
               <a href="{% url 'card_edit' card.id %}" class="btn blue">Edit</a>
-              <a class="btn red" href="{% url 'cards_delete' card.id %}">Delete</a>
+              {% comment %} <a class="btn red" href="{% url 'cards_delete' card.id %}">Delete</a> {% endcomment %}
           </div>
     </div>
+
   </div>
 </div>
 
-{% endblock %}
+{% endblock content %}
