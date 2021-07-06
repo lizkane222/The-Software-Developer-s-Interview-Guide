@@ -73,6 +73,7 @@ class Card_Form(ModelForm):
     # img = forms.CharField()
     img = forms.ImageField(required=False, widget=forms.FileInput, label="Upload Image")
     creator = forms.CharField()
+    definition = forms.CharField()
 
     # code_snippets = forms.ModelChoiceField(queryset=Code_Snippet.objects.all(), to_field_name="content")
     # categories = forms.ModelChoiceField(queryset=Category.objects.all(), to_field_name="name")
@@ -80,7 +81,7 @@ class Card_Form(ModelForm):
     # resources = forms.ModelChoiceField(queryset=Resource.objects.all(), to_field_name="name")
     # concepts = forms.ModelChoiceField(queryset=Concept.objects.all(), to_field_name="name")
     # texts = forms.ModelChoiceField(queryset=Text.objects.all(), to_field_name="heading")
-    definition = forms.CharField()
+    # definition = forms.CharField()
     
     class Meta:
         model = Card

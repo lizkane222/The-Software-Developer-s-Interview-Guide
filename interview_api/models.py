@@ -41,6 +41,7 @@ class Category(models.Model):
 
 
 class Code_Snippet(models.Model):
+    name = models.CharField(max_length=3000, default="", blank=True, unique=False)
     content = models.CharField(max_length=3000, default="", blank=True, unique=False)
     url = models.CharField(max_length=3000, default="", blank=True, unique=False)
     creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
@@ -119,7 +120,8 @@ class Card(models.Model):
     img = models.CharField(max_length=200, default="", blank=True, unique=False)
     creator = models.CharField(max_length=1000, default="", blank=True, unique=False)
     kind = models.CharField(max_length=4, default="Card", editable=False)
-    
+    # definition = models.CharField(max_length=200, default="", blank=True, unique=False)
+
     code_snippets = models.ManyToManyField(Code_Snippet)
     categories = models.ManyToManyField(Category)
     images = models.ManyToManyField(Image)
@@ -152,7 +154,7 @@ class Language(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     cards = models.ManyToManyField(Card)
-    code_Snippets = models.ManyToManyField(Code_Snippet)
+    code_snippets = models.ManyToManyField(Code_Snippet)
     categories = models.ManyToManyField(Category)
     images = models.ManyToManyField(Image)
     resources = models.ManyToManyField(Resource)
@@ -170,7 +172,7 @@ class Concept(models.Model):
 
     cards = models.ManyToManyField(Card)
     languages = models.ManyToManyField(Language)
-    code_Snippets = models.ManyToManyField(Code_Snippet)
+    code_snippets = models.ManyToManyField(Code_Snippet)
     categories = models.ManyToManyField(Category)
     images = models.ManyToManyField(Image)
     resources = models.ManyToManyField(Resource)
@@ -181,16 +183,16 @@ class Concept(models.Model):
 
 
 class Profile(models.Model):
-    savedItems = models.BooleanField(null=False, default=False)
-    removedItems = models.BooleanField(null=False, default=False)
-    reviewNow = models.BooleanField(null=False, default=False)
-    reviewLater = models.BooleanField(null=False, default=False)
+    saved_items = models.BooleanField(null=False, default=False)
+    removed_items = models.BooleanField(null=False, default=False)
+    review_now = models.BooleanField(null=False, default=False)
+    review_later = models.BooleanField(null=False, default=False)
     kind = models.CharField(max_length=7, default="Profile", editable=False)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     cards = models.ManyToManyField(Card)
     languages = models.ManyToManyField(Language)
-    code_Snippets = models.ManyToManyField(Code_Snippet)
+    code_snippets = models.ManyToManyField(Code_Snippet)
     categories = models.ManyToManyField(Category)
     images = models.ManyToManyField(Image)
     resources = models.ManyToManyField(Resource)
@@ -198,4 +200,4 @@ class Profile(models.Model):
     texts = models.ManyToManyField(Text)
 
     def __str__(self):
-        return f"CARDS: {self.cards}. LANGUAGES: {self.languages}. CODE: {self.code_Snippets}. Categories {self.categories} {self.images} {self.resources} {self.concepts} {self.texts} kind: {self.kind}"
+        return f"CARDS: {self.cards}. LANGUAGES: {self.languages.name}. CODE: {self.code_snippets}. Categories {self.categories} {self.images} {self.resources} {self.concepts} {self.texts} kind: {self.kind}"

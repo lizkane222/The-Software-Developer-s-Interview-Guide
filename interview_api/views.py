@@ -30,8 +30,16 @@ def main(request):
 def home(request):
     cards = Card.objects.all()
     languages = Language.objects.all()
+    features = Feature.objects.all()
+    images = Image.objects.all()
+    texts = Text.objects.all()
+    concepts = Concept.objects.all()
 
     context = {
+        'features': features,
+        'images': images,
+        'texts': texts,
+        'concepts': concepts,
         'card_form': Card_Form(),
         'language_form' : Language_Form(),
         'cards': cards,
@@ -56,7 +64,30 @@ def tree(request):
     # return HttpResponse("Tree of Knowledge", context)
 
 
+# CARDS INDEX
+# def cards_index(request):
+#     if request.method =="GET":
+#         print(request.GET)
+#     if request.method == "POST":
+#         print(request.POST)
+        
+#         card_form = Card_Form(request.POST)
+#             if card_form.is_valid():
+#                 new_card = card_form.save(commit=True)
+                # new_card.user = request.user
+                # new_card.save()
+                # return redirect('cards_index',)
+            
+                # return redirect('card_detail', card_id=card_id)
 
+    # cards = Card.objects.all()
+    # card_form = Card_Form()
+
+    # context = {
+    #     'card_form': card_form,
+    #     'cards': cards,
+    # }
+    # return render(request, 'cards/index.html', context)
 
 # CARDS INDEX
 def cards_index(request):
@@ -64,7 +95,7 @@ def cards_index(request):
         print(request.GET)
     if request.method == "POST":
         print(request.POST)
-        definition_form = Definition_Form(request.POST)
+
         card_form = Card_Form(request.POST)
         if definition_form.is_valid():
             if card_form.is_valid():
@@ -94,11 +125,11 @@ def card_detail(request, card_id):
     if request.method =="GET":
         print(request.GET)
     card = Card.objects.get(id=card_id)
-    # definitions = Definition.objects.all()
+    definitions = Definition.objects.all()
     # cards_not_here = Card.objects.exclude(id_in=card.)
     context = {
         'card': card,
-        # 'definitions': definitions
+        'definitions': definitions
     }
     return render(request, 'cards/detail.html', context)
 

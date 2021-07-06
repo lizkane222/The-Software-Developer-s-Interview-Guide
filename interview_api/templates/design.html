@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
 
 
 {% block fabtoolbar%}
     {%include 'fabtoolbar.html'%}
 {% endblock %}
 
-{% block content %}
+{% comment %} {% block content %} {% endcomment %}
             {% comment %} <img src="../media/stockphotos/coffee1.jpg"  width="336px" height="69px"> {% endcomment %}
 
-
+{%block designBoardBlock%}
 <div class="mainWrapper">
     <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">        
 
@@ -23,7 +23,7 @@
                 <div class="draggable collapsible" id="card{{card.term}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.term}}</div>
                 <div class="draggable collapsible" id="card{{card.altname}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.altname}}</div>
                 <div class="draggable collapsible" id="card{{card.subterms}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.subterms}}</div>
-                <div class="draggable collapsible" id="card{{card.definitions}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.definitions}}</div>
+                {% comment %} <div class="draggable collapsible" id="card{{card.definition}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.definition}}</div> {% endcomment %}
                 <div class="draggable collapsible" id="card{{card.texts}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.texts}}</div>
                 <div class="draggable collapsible" id="card{{card.images}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.images}}</div>
                 <div class="draggable collapsible" id="card{{card.topic}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.topic}}</div>
@@ -349,4 +349,4 @@
 
 </script>
     {% comment %} {% endblock %} {% endcomment %}
-{% endblock %}
+{% endblock designBoardBlock%}

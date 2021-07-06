@@ -1,4 +1,4 @@
-#!/Users/lizkane/Desktop/GA/SEI/Projects/DeveloperInterviewPrep/DIPAPI/djangoPy3Env/bin/python3
+#!/Users/lizkane/Desktop/GA/SEI/Projects/DeveloperInterviewPrep/DIPAPI/djangoPy3Env/bin/python3.9
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

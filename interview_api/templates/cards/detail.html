@@ -18,7 +18,6 @@
             </div>
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{card.term}}<i class="material-icons right">more_vert</i></span>
-                {% comment %} <p><a href="#">{{definition.card}}</a></p> {% endcomment %}
             </div>
             <div class="card-action">
                 <a href="#">{{card.category}}</a>
@@ -26,9 +25,8 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{card.term}}<i class="material-icons right">close</i></span>
-                {% for definition in definitions %}
-                <p>{{definition.card}}</p>
-                {% endfor %}
+
+                <p>{{card.definition}}</p>
                 <p>{{card.creator}}</p>
             </div>
         </div>

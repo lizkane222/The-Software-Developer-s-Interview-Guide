@@ -13,7 +13,9 @@
             <img src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water" class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
             <p class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{now}}</p>
         </div>
-
+    {% block design %}
+            {% include 'design.html' %}
+    {% endblock %}
 
         <!-- <hr/> -->
 

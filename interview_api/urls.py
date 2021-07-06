@@ -8,6 +8,7 @@ urlpatterns = [
     # path('main', views.main, name="main"),
 
     # HOME & ABOUT & NAVIGATION FEATURES
+    # PROFILE
     path('', views.home, name="home"),
 
 
@@ -29,6 +30,5 @@ urlpatterns = [
 
     # DESIGN BOARD
     path('design-board/', views.design_board, name="design_board"),
-
 
 ]
