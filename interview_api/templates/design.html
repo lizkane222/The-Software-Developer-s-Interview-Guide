@@ -25,7 +25,7 @@
                 <div class="draggable collapsible" id="card{{card.subterms}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.subterms}}</div>
                 {% comment %} <div class="draggable collapsible" id="card{{card.definition}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.definition}}</div> {% endcomment %}
                 <div class="draggable collapsible" id="card{{card.texts}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.texts}}</div>
-                <div class="draggable collapsible" id="card{{card.images}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.images}}</div>
+                {% comment %} <div class="draggable collapsible" id="card{{card.images}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.images}}</div> {% endcomment %}
                 <div class="draggable collapsible" id="card{{card.topic}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.topic}}</div>
                 <div class="draggable collapsible" id="card{{card.kind}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.kind}}</div>
                 <div class="draggable collapsible" id="card{{card.categories}}{{card.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{card.categories}}</div>
@@ -54,7 +54,7 @@
             {% for concept in concepts %}
                 <div class="conceptDesign draggable dragBox collapsible deep-purple darken-4" id="concept{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <div class="draggable collapsible" id="concept{{concept.name}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.name}}</div>
-                    <div class="draggable collapsible" id="concept{{concept.images}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.images}}</div>
+                    {% comment %} <div class="draggable collapsible" id="concept{{concept.images}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.images}}</div> {% endcomment %} 
                     <div class="draggable collapsible" id="concept{{concept.resources}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.resources}}</div>
                     <div class="draggable collapsible" id="concept{{concept.code_snippets}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.code_snippets}}</div>
                     <div class="draggable collapsible" id="concept{{concept.kind}}{{concept.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{concept.kind}}</div>
@@ -70,7 +70,7 @@
                     <div class="draggable collapsible" id="language{{language.name}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.name}}</div>
                     <div class="draggable collapsible" id="language{{language.stack}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.stack}}</div>
                     <div class="draggable collapsible" id="language{{language.best_features}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.best_features}}</div>
-                    <img src={{language.images}} class="draggable collapsible" draggable="true" id="language{{language.images}}/>{{language.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+                    {% comment %} <img src={{language.images}} class="draggable collapsible" draggable="true" id="language{{language.images}}/>{{language.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/> {% endcomment %}
                     <div class="draggable collapsible" id="language{{language.texts}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.texts}}</div>
                     <div class="draggable collapsible" id="language{{language.kind}}{{language.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{language.kind}}</div>
                 </div>
@@ -79,18 +79,27 @@
                     <h3>ZACK</h3>
             </div>
         </div>
-        <div id="designObjectsCol5" class="col5 designObjectCol dragBox overflowScroll blue-grey lighten-3" ondrop="drop(event)" ondragover="allowDrop(event)">
-            {% for image in images %}
-                <div class="imageDesign draggable dragBox collapsible deep-orange darken-4" id="image{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <div class="draggable collapsible" id="image{{image.name}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.name}}</div>
-                    <img src={{images.url}} class="draggable collapsible" draggable="true" id="image{{images.url}}/>{{images.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/>
-                    <div class="draggable collapsible" id="image{{image.is_complete}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.is_complete}}</div>
-                    <div class="draggable collapsible" id="image{{image.updated_at}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.updated_at}}</div>
-                    <div class="draggable collapsible" id="image{{image.kind}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.kind}}</div>
-                </div>
-            {% endfor images %}
+       
+
+       -----------!!!!! ↓↓↓ IMAGES COMMENTED OUT B/C OF ERROR ↓↓↓ !!!!!-----------
+
+        {% comment %} <div id="designObjectsCol5" class="col5 designObjectCol dragBox overflowScroll blue-grey lighten-3" ondrop="drop(event)" ondragover="allowDrop(event)">
+             {% for image in images %} 
+               {% if image != null%} 
+                        <div class="draggable collapsible" id="image{{image.name}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.name}}</div>
+                         <img src={{images.url}} class="draggable collapsible" draggable="true" id="image{{images.url}}{{images.id}}" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)"/> 
+                        <div class="draggable collapsible" id="image{{image.is_complete}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.is_complete}}</div>
+                        <div class="draggable collapsible" id="image{{image.updated_at}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.updated_at}}</div>
+                        <div class="draggable collapsible" id="image{{image.kind}}{{image.id}}" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{image.kind}}</div>
+                    </div>
+                {%endif%}
+             {% endfor images %} 
                 <img src="https://i.imgur.com/JAgCxDc.jpg"  width="auto" height="auto" class="dragBox draggable collapsible" id="drag6" draggable="true" ondragstart="drag(event)">
-        </div>
+        </div> 
+        {% endcomment %}
+
+        -----------!!!!! ↑↑↑ IMAGES COMMENTED OUT B/C OF ERROR ↑↑↑ !!!!!-----------
+
 
             {% comment %} <div class="col6">
                 

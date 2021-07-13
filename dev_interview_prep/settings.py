@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path , os
 # import environ
-
+import analytics
 
 # env = environ.Env(
 #     DEBUG=(bool,True)

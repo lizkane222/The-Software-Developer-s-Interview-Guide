@@ -10,6 +10,10 @@ import boto3
 from datetime import datetime
 from django.utils import timezone
 
+
+
+
+
 # Create your views here. code responsible for rendering views/api endpoints
 
 #             Card('REST', 'Representational State Transfer', ['determines how the API looks', 'set of rules that devs follow when they create their API', 'one of these rules states that <you should be able to get a piece of data (called a resource) when you link to a specific URL>', 'Each URL is called a request while the data sent back to you is called a response'], 'back-end', 'cross language vocabulary', 'Liz Kane'),

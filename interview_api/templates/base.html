@@ -16,10 +16,36 @@
     {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> {% endcomment %}
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <link rel="stylesheet" href="../static/sass/main.css">
+    <script>
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="bZ9EPus9VgoSPBMEl84t4B0KI6sDG52B";analytics.SNIPPET_VERSION="4.13.2";
+        analytics.load("bZ9EPus9VgoSPBMEl84t4B0KI6sDG52B");
+        analytics.page();
+        }}();
+    </script>
+    <!-- Facebook Pixel Code -->
+    {% comment %} <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '351728446389846');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=351728446389846&ev=PageView&noscript=1"/>
+    </noscript>    {% endcomment %}
+    <!-- End Facebook Pixel Code -->
 
     <title>Developer Interview Guide</title>
+
 </head>
 <body>
+
     
     
     <ul id="dropdown-terms" class="dropdown-content">
@@ -52,17 +78,17 @@
                     <li class="nav-item">
                         <a href="/" id="logoName" class="left brand-logo"><h5>Developers Interview Guide</h5></a>
                     </li>
-                    {% comment %} <li class="sidenav-trigger">
+                     {% comment %} <li class="sidenav-trigger">
                         <a href="#"><i class="material-icons">menu</i></a>
-                    </li> {% endcomment %}
+                    </li>  {% endcomment %}
                 </ul>
 
                     <div class="right hide-on-med-and-down">
                         <form id="navSearch">
                             <div class="input-field" >
-                            <input id="search" type="search" placeholder="LOOK UP WHAT TO STUDY-  term: 'API'  |  concept: 'RESTful routing'  |  language: 'Python'" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                            <input id="search" type="search" placeholder="LOOK UP -  term: 'API'  |  concept: 'RESTful routing'  |  language: 'Python'" required>
+                            <input type="submit"><label class="label-icon" for="search"><i class="material-icons">search</i></label></input>
+                            <input class="material-icons">close</input>
                             </div>
                         </form>
                     </div>
@@ -88,9 +114,11 @@
                         <a href="{% url 'design_board'%}" class="">Design</a>
                     </li>
                 </ul>
+
                 {% comment %} BELOW: HIDE ON LARGE -- SHOWS ONLY ON SMALLER SCREENS {% endcomment %}
+
                 <ul class="hide-on-large-only nav-list">
-                    <h2 class="brand-logo left" id="logoBrandMini">DIP</h2>
+                    <a href="/"><h2 class="brand-logo left" id="logoBrandMini">DIP</h2></a>
                 </ul>
                 <div class="center hide-on-large-only">
                     <form id="navSearch">
@@ -140,7 +168,7 @@
 
     {% block sidebar %}
         {% include 'sidebar.html' %}
-    {% endblock %}
+    {% endblock sidebar%}
 
 
 
@@ -148,10 +176,17 @@
     {% block content %}
         
 
-    {% endblock %}
+    {% endblock content%}
 </main>
 
 <footer class="page-footer blue-grey lighten-4">
+    <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="timeContainer" class="draggable" draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)>
+            <h4 class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Current Time <br/>{{timezone}}</h4>
+            <p class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{now}}</p>
+            <img src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water" class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+    </div>
     <div>Sponsored by 🧡 Swarles 😻 & 🐈 Tucker</div>
 </footer>
 

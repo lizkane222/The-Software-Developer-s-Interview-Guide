@@ -4,18 +4,16 @@
     {%include 'fabhover.html'%}
 {% endblock %}
 
-{% block content %}
-<div class="mainWrapper">
-    <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">        
+{% block content%}
 
-        <div id="timeContainer" class="draggable" draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)>
-            <h4 class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">Current Time <br/>{{timezone}}</h4>
-            <img src="https://media.giphy.com/media/qbjU1E19Mq26Q/giphy.gif" alt="time lapse of sunset over water" class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <p class="draggable" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">{{now}}</p>
-        </div>
+
+<div class="mainWrapper">
+    <div class="mainContent dragBox overflowScroll" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+       
     {% block design %}
             {% include 'design.html' %}
-    {% endblock %}
+    {% endblock design%}
 
         <!-- <hr/> -->
 
@@ -44,8 +42,8 @@
 
         {% comment %} {% endblock %} {% endcomment %}
 
-    </div>    
-</div>    
+    {% comment %} </div>    
+</div>     {% endcomment %}
     <script>
         function allowDrop(ev) {
             ev.preventDefault();
@@ -63,4 +61,4 @@
     </script>
 
 
-{% endblock %}
+{% endblock content%}
